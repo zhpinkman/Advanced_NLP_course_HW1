@@ -1,0 +1,2 @@
+# Advanced_NLP_course_HW1
+This assignment is about writing two (or more) linear classifiers and testing them out on multiple kinds of classification tasks. While the key models should not be difficult to implement, expect to spend some time setting up the general framework (which you will largely re-use in HW2) and considerable time investigating different classes of features that will be applicable for each of the tasks.
