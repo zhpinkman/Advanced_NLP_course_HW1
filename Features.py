@@ -17,6 +17,14 @@ def tokenize(text):
 
     return words
 
+# TODO: features you can use
+# happy words,
+# prefixes
+# negative words
+# TODO: checkout the paper on thumbs up for the template on the report
+# TODO: for the Odyia dataset take into account the word
+# Check the BPE tokenizing
+
 
 class Features:
 
