@@ -2,12 +2,14 @@
     Basic feature extractor
 """
 from collections import defaultdict
+from collections import Counter, defaultdict
+from email.policy import default
 from operator import methodcaller
 import string
 from consts import STOP_WORDS
 
 
-def tokenize(text):
+def tokenize(text: str):
     text = text.translate(str.maketrans(' ', ' ', string.punctuation))
 
     text = text.lower()
@@ -17,17 +19,17 @@ def tokenize(text):
 
     return words
 
+
 # TODO: features you can use
-# happy words,
-# prefixes
-# negative words
+# TODO: happy words,
+# TODO: prefixes
+# TODO: negative words
 # TODO: checkout the paper on thumbs up for the template on the report
 # TODO: for the Odyia dataset take into account the word
-# Check the BPE tokenizing
+# TODO: Check the weighted naive bayes model
 
 
 class Features:
-
     def __init__(self, data_file):
         with open(data_file) as file:
             data = file.read().splitlines()
@@ -46,11 +48,19 @@ class Features:
         pass
 
 
-class NB_Features(Features):
+class BOWFeatures(Features):
 
     def __init__(self, data_file):
         super().__init__(data_file=data_file)
 
     @classmethod
     def get_features(cls, tokenized, model):
-        return tokenized
+        sents_words_counts = []
+        for sent_tokenized in tokenized:
+            words_counts = defaultdict(int)
+            for word in sent_tokenized:
+                words_counts[word] += 1
+            sents_words_counts.append(
+                words_counts
+            )
+        return sents_words_counts

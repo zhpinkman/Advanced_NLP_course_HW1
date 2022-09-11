@@ -7,11 +7,12 @@ Please refer to lecture notes Chapter 4 for more details
 """
 
 import math
+from typing import Any, Dict
 from tqdm import tqdm
 import numpy as np
 from IPython import embed
 from Model import *
-from Features import Features, NB_Features
+from Features import Features, BOWFeatures
 from collections import defaultdict
 from sklearn.metrics import classification_report
 
@@ -29,15 +30,15 @@ class NaiveBayes(Model):
 
     @classmethod
     def get_word_counts_per_class(cls, feature_class: Features):
-        tokenized_texts = feature_class.get_features(
+        sents_words_counts = feature_class.get_features(
             feature_class.tokenized_text,
             None
         )
         word_counts_per_class = defaultdict(lambda: defaultdict(int))
 
-        for words, label in tqdm(zip(tokenized_texts, feature_class.labels), leave=False):
-            for word in words:
-                word_counts_per_class[label][word] += 1
+        for words_counts, label in tqdm(zip(sents_words_counts, feature_class.labels), leave=False):
+            for word, count in words_counts.items():
+                word_counts_per_class[label][word] += count
 
         word_counts_total_per_class = {
             label: np.sum(list(label_word_counts.values()))
@@ -52,7 +53,7 @@ class NaiveBayes(Model):
         :param input_file: path to training file with a text and a label per each line
         :return: model: trained model
         """
-        feature_class = NB_Features(data_file=input_file)
+        feature_class = BOWFeatures(data_file=input_file)
         word_counts_per_class, word_counts_total_per_class = self.get_word_counts_per_class(
             feature_class=feature_class
         )
@@ -101,28 +102,28 @@ class NaiveBayes(Model):
         word_counts_total_per_class = model['word_counts_total_per_class']
         all_classes_vocab = model['all_classes_vocab']
 
-        feature_class = NB_Features(data_file=input_file)
-        tokenized_texts = feature_class.get_features(
+        feature_class = BOWFeatures(data_file=input_file)
+        sents_words_counts = feature_class.get_features(
             feature_class.tokenized_text,
             None
         )
 
         preds = []
 
-        for tokenized_text in tokenized_texts:
+        for words_counts in sents_words_counts:
             result_probs = {
                 label: math.log(class_probs[label])
                 for label in classes
             }
 
-            for word in tokenized_text:
+            for word, count in words_counts.items():
                 for label in classes:
                     if word in word_probs_per_class[label].keys():
-                        result_probs[label] += math.log(
+                        result_probs[label] += count * math.log(
                             word_probs_per_class[label][word]
                         )
                     else:
-                        result_probs[label] += math.log(
+                        result_probs[label] += count * math.log(
                             1 / (word_counts_total_per_class[label] +
                                  len(all_classes_vocab))
                         )

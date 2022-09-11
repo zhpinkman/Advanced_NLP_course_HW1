@@ -1,12 +1,11 @@
 """
  Refer to Chapter 5 for more details on how to implement a Perceptron
 """
+from typing import Any, Dict
 from sklearn.metrics import classification_report
 from collections import defaultdict
-import enum
-from re import I
 from IPython import embed
-from Features import Features, NB_Features
+from Features import Features, BOWFeatures
 from Model import *
 from tqdm import tqdm
 import numpy as np
@@ -16,15 +15,15 @@ class Perceptron(Model):
 
     @classmethod
     def get_all_words(cls, feature_class: Features):
-        tokenized_texts = feature_class.get_features(
+        sents_words_counts = feature_class.get_features(
             feature_class.tokenized_text,
             None
         )
         all_words_counts = defaultdict(int)
 
-        for words, _ in tqdm(zip(tokenized_texts, feature_class.labels), leave=False):
-            for word in words:
-                all_words_counts[word] += 1
+        for words_counts in tqdm(sents_words_counts, leave=False):
+            for word, count in words_counts.items():
+                all_words_counts[word] += count
 
         all_words = set([
             word
@@ -57,7 +56,7 @@ class Perceptron(Model):
         :return: model: trained model 
         """
 
-        feature_class = NB_Features(data_file=input_file)
+        feature_class = BOWFeatures(data_file=input_file)
         all_words = self.get_all_words(
             feature_class=feature_class
         )
@@ -109,7 +108,7 @@ class Perceptron(Model):
         label2index = model['label2index']
         all_words = model['all_words']
 
-        feature_class = NB_Features(data_file=input_file)
+        feature_class = BOWFeatures(data_file=input_file)
 
         features = np.array([
             self.get_features(tokenized_text, all_words)
