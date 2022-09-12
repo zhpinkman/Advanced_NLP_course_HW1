@@ -1,0 +1,9 @@
+
+
+ 79%|████████████████████████▌      | 20707/26073 [00:01<00:00, 19428.87it/s]
+Traceback (most recent call last):
+  File "/Users/div22loaner/Documents/Advanced_NLP_662/HW1/train.py", line 42, in <module>
+    model = model.train(args.i, **vars(args))
+  File "/Users/div22loaner/Documents/Advanced_NLP_662/HW1/perceptron.py", line 117, in train
+    with open(kwargs['dev_true'], 'r') as f:
+KeyError: 'dev_true'

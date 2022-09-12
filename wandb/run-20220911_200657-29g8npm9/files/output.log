@@ -1,0 +1,37 @@
+
+
+ 84%|██████████████████████████     | 21938/26073 [00:01<00:00, 22096.28it/s]
+  0%|                                                 | 0/10 [00:00<?, ?it/s]
+
+ 81%|█████████████████████████      | 21115/26073 [00:01<00:00, 20881.31it/s]
+
+
+ 20%|████████▏                                | 2/10 [00:53<03:36, 27.02s/it]
+
+
+ 30%|████████████▎                            | 3/10 [01:17<02:58, 25.52s/it]
+
+
+
+ 50%|████████████████████▌                    | 5/10 [02:06<02:05, 25.10s/it]
+
+
+ 60%|████████████████████████▌                | 6/10 [02:29<01:37, 24.34s/it]
+
+ 40%|████████████▎                  | 10402/26073 [00:00<00:00, 20572.11it/s]
+
+
+ 70%|████████████████████████████▋            | 7/10 [02:55<01:14, 24.85s/it]
+
+ 16%|█████                           | 4116/26073 [00:00<00:01, 20620.30it/s]
+
+ 98%|████████████████████████████████▎| 6379/6519 [00:00<00:00, 21383.59it/s]
+
+Traceback (most recent call last):
+  File "/Users/div22loaner/Documents/Advanced_NLP_662/HW1/train.py", line 42, in <module>
+    model = model.train(args.i, **vars(args))
+  File "/Users/div22loaner/Documents/Advanced_NLP_662/HW1/perceptron.py", line 109, in train
+    'W': W,
+  File "/Users/div22loaner/Documents/Advanced_NLP_662/HW1/perceptron.py", line 167, in classify
+    features = (features - features_means) / features_stds
+KeyboardInterrupt

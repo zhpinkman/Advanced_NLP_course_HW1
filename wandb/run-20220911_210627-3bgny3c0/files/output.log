@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/Users/div22loaner/Documents/Advanced_NLP_662/HW1/train.py", line 42, in <module>
+    model = model.train(args.i, **vars(args))
+  File "/Users/div22loaner/Documents/Advanced_NLP_662/HW1/logistic_regression.py", line 122, in train
+    test_Y_onehot = onehot_encoder.transform(
+  File "/usr/local/lib/python3.10/site-packages/sklearn/preprocessing/_encoders.py", line 876, in transform
+    check_is_fitted(self)
+  File "/usr/local/lib/python3.10/site-packages/sklearn/utils/validation.py", line 1345, in check_is_fitted
+    raise NotFittedError(msg % {"name": type(estimator).__name__})
+sklearn.exceptions.NotFittedError: This OneHotEncoder instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator.

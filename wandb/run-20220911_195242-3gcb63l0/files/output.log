@@ -1,0 +1,34 @@
+
+
+ 75%|███████████████████████▏       | 19524/26073 [00:01<00:00, 19722.68it/s]
+
+
+
+
+ 11%|████▌                                    | 9/80 [00:07<00:59,  1.19it/s]
+
+ 11%|████▌                                    | 9/80 [00:07<00:59,  1.19it/s]/usr/local/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Recall and F-score are ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Recall and F-score are ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1334: UndefinedMetricWarning: Recall and F-score are ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+ 12%|█████                                   | 10/80 [00:33<10:04,  8.64s/it]
+
+
+
+Traceback (most recent call last):
+  File "/Users/div22loaner/Documents/Advanced_NLP_662/HW1/train.py", line 42, in <module>
+    model = model.train(args.i, **vars(args))
+  File "/Users/div22loaner/Documents/Advanced_NLP_662/HW1/perceptron.py", line 91, in train
+    z = self.forward(W=W, x=features[i, :])
+  File "/Users/div22loaner/Documents/Advanced_NLP_662/HW1/perceptron.py", line 50, in forward
+    z = W[:, 0] + np.dot(W[:, 1:], x.T)
+  File "<__array_function__ internals>", line 180, in dot
+KeyboardInterrupt

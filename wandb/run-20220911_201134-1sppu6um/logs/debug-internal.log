@@ -1,0 +1,154 @@
+2022-09-11 20:11:34,892 INFO    StreamThr :40119 [internal.py:wandb_internal():88] W&B internal server running at pid: 40119, started at: 2022-09-11 20:11:34.890719
+2022-09-11 20:11:34,895 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: status
+2022-09-11 20:11:34,896 DEBUG   SenderThread:40119 [sender.py:send_request():315] send_request: status
+2022-09-11 20:11:34,898 DEBUG   SenderThread:40119 [sender.py:send():301] send: header
+2022-09-11 20:11:34,898 INFO    WriterThread:40119 [datastore.py:open_for_write():75] open: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_201134-1sppu6um/run-1sppu6um.wandb
+2022-09-11 20:11:34,922 DEBUG   SenderThread:40119 [sender.py:send():301] send: run
+2022-09-11 20:11:35,136 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: check_version
+2022-09-11 20:11:35,138 INFO    SenderThread:40119 [dir_watcher.py:__init__():216] watching files in: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_201134-1sppu6um/files
+2022-09-11 20:11:35,138 INFO    SenderThread:40119 [sender.py:_start_run_threads():912] run started: 1sppu6um with start time 1662952294.883541
+2022-09-11 20:11:35,139 DEBUG   SenderThread:40119 [sender.py:send():301] send: summary
+2022-09-11 20:11:35,139 INFO    SenderThread:40119 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-11 20:11:35,139 DEBUG   SenderThread:40119 [sender.py:send_request():315] send_request: check_version
+2022-09-11 20:11:35,198 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: run_start
+2022-09-11 20:11:35,200 DEBUG   HandlerThread:40119 [meta.py:__init__():34] meta init
+2022-09-11 20:11:35,200 DEBUG   HandlerThread:40119 [meta.py:__init__():49] meta init done
+2022-09-11 20:11:35,200 DEBUG   HandlerThread:40119 [meta.py:probe():215] probe
+2022-09-11 20:11:35,206 DEBUG   HandlerThread:40119 [meta.py:_setup_git():205] setup git
+2022-09-11 20:11:35,257 DEBUG   HandlerThread:40119 [meta.py:_setup_git():212] setup git done
+2022-09-11 20:11:35,257 DEBUG   HandlerThread:40119 [meta.py:_save_pip():53] save pip
+2022-09-11 20:11:35,259 DEBUG   HandlerThread:40119 [meta.py:_save_pip():67] save pip done
+2022-09-11 20:11:35,259 DEBUG   HandlerThread:40119 [meta.py:probe():253] probe done
+2022-09-11 20:11:35,267 DEBUG   SenderThread:40119 [sender.py:send():301] send: files
+2022-09-11 20:11:35,268 INFO    SenderThread:40119 [sender.py:_save_file():1155] saving file wandb-metadata.json with policy now
+2022-09-11 20:11:35,277 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-11 20:11:35,277 DEBUG   SenderThread:40119 [sender.py:send_request():315] send_request: stop_status
+2022-09-11 20:11:35,373 DEBUG   SenderThread:40119 [sender.py:send():301] send: telemetry
+2022-09-11 20:11:35,612 INFO    Thread-17 :40119 [upload_job.py:push():139] Uploaded file /var/folders/1z/c7zw_w5d5f3czksqns4x3nw00000gp/T/tmpyejeccfmwandb/3n3kgdqy-wandb-metadata.json
+2022-09-11 20:11:36,141 INFO    Thread-13 :40119 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_201134-1sppu6um/files/requirements.txt
+2022-09-11 20:11:36,141 INFO    Thread-13 :40119 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_201134-1sppu6um/files/wandb-metadata.json
+2022-09-11 20:11:36,142 INFO    Thread-13 :40119 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_201134-1sppu6um/files/wandb-summary.json
+2022-09-11 20:11:41,161 INFO    Thread-13 :40119 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_201134-1sppu6um/files/output.log
+2022-09-11 20:11:43,168 INFO    Thread-13 :40119 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_201134-1sppu6um/files/output.log
+2022-09-11 20:11:45,176 INFO    Thread-13 :40119 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_201134-1sppu6um/files/output.log
+2022-09-11 20:11:49,361 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: poll_exit
+2022-09-11 20:11:49,361 DEBUG   SenderThread:40119 [sender.py:send():301] send: exit
+2022-09-11 20:11:49,361 INFO    SenderThread:40119 [sender.py:send_exit():437] handling exit code: 255
+2022-09-11 20:11:49,361 INFO    SenderThread:40119 [sender.py:send_exit():439] handling runtime: 14
+2022-09-11 20:11:49,362 INFO    SenderThread:40119 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-11 20:11:49,362 INFO    SenderThread:40119 [sender.py:send_exit():445] send defer
+2022-09-11 20:11:49,362 DEBUG   SenderThread:40119 [sender.py:send_request():315] send_request: poll_exit
+2022-09-11 20:11:49,363 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: defer
+2022-09-11 20:11:49,363 INFO    HandlerThread:40119 [handler.py:handle_request_defer():161] handle defer: 0
+2022-09-11 20:11:49,364 DEBUG   SenderThread:40119 [sender.py:send_request():315] send_request: defer
+2022-09-11 20:11:49,364 INFO    SenderThread:40119 [sender.py:send_request_defer():454] handle sender defer: 0
+2022-09-11 20:11:49,364 INFO    SenderThread:40119 [sender.py:transition_state():458] send defer: 1
+2022-09-11 20:11:49,364 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: defer
+2022-09-11 20:11:49,365 INFO    HandlerThread:40119 [handler.py:handle_request_defer():161] handle defer: 1
+2022-09-11 20:11:49,366 DEBUG   SenderThread:40119 [sender.py:send_request():315] send_request: defer
+2022-09-11 20:11:49,366 INFO    SenderThread:40119 [sender.py:send_request_defer():454] handle sender defer: 1
+2022-09-11 20:11:49,366 INFO    SenderThread:40119 [sender.py:transition_state():458] send defer: 2
+2022-09-11 20:11:49,367 DEBUG   SenderThread:40119 [sender.py:send():301] send: stats
+2022-09-11 20:11:49,367 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: defer
+2022-09-11 20:11:49,367 INFO    HandlerThread:40119 [handler.py:handle_request_defer():161] handle defer: 2
+2022-09-11 20:11:49,367 DEBUG   SenderThread:40119 [sender.py:send_request():315] send_request: defer
+2022-09-11 20:11:49,367 INFO    SenderThread:40119 [sender.py:send_request_defer():454] handle sender defer: 2
+2022-09-11 20:11:49,367 INFO    SenderThread:40119 [sender.py:transition_state():458] send defer: 3
+2022-09-11 20:11:49,368 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: defer
+2022-09-11 20:11:49,368 INFO    HandlerThread:40119 [handler.py:handle_request_defer():161] handle defer: 3
+2022-09-11 20:11:49,368 DEBUG   SenderThread:40119 [sender.py:send_request():315] send_request: defer
+2022-09-11 20:11:49,368 INFO    SenderThread:40119 [sender.py:send_request_defer():454] handle sender defer: 3
+2022-09-11 20:11:49,368 INFO    SenderThread:40119 [sender.py:transition_state():458] send defer: 4
+2022-09-11 20:11:49,368 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: defer
+2022-09-11 20:11:49,368 INFO    HandlerThread:40119 [handler.py:handle_request_defer():161] handle defer: 4
+2022-09-11 20:11:49,369 DEBUG   SenderThread:40119 [sender.py:send():301] send: summary
+2022-09-11 20:11:49,369 INFO    SenderThread:40119 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-11 20:11:49,369 DEBUG   SenderThread:40119 [sender.py:send_request():315] send_request: defer
+2022-09-11 20:11:49,370 INFO    SenderThread:40119 [sender.py:send_request_defer():454] handle sender defer: 4
+2022-09-11 20:11:49,370 INFO    SenderThread:40119 [sender.py:transition_state():458] send defer: 5
+2022-09-11 20:11:49,370 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: defer
+2022-09-11 20:11:49,370 INFO    HandlerThread:40119 [handler.py:handle_request_defer():161] handle defer: 5
+2022-09-11 20:11:49,370 DEBUG   SenderThread:40119 [sender.py:send_request():315] send_request: defer
+2022-09-11 20:11:49,370 INFO    SenderThread:40119 [sender.py:send_request_defer():454] handle sender defer: 5
+2022-09-11 20:11:49,468 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: poll_exit
+2022-09-11 20:11:49,473 INFO    SenderThread:40119 [sender.py:transition_state():458] send defer: 6
+2022-09-11 20:11:49,473 DEBUG   SenderThread:40119 [sender.py:send_request():315] send_request: poll_exit
+2022-09-11 20:11:49,474 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: defer
+2022-09-11 20:11:49,474 INFO    HandlerThread:40119 [handler.py:handle_request_defer():161] handle defer: 6
+2022-09-11 20:11:49,474 DEBUG   SenderThread:40119 [sender.py:send_request():315] send_request: defer
+2022-09-11 20:11:49,474 INFO    SenderThread:40119 [sender.py:send_request_defer():454] handle sender defer: 6
+2022-09-11 20:11:49,575 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: poll_exit
+2022-09-11 20:11:50,193 INFO    Thread-13 :40119 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_201134-1sppu6um/files/config.yaml
+2022-09-11 20:11:50,194 INFO    Thread-13 :40119 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_201134-1sppu6um/files/wandb-summary.json
+2022-09-11 20:11:50,288 INFO    SenderThread:40119 [sender.py:transition_state():458] send defer: 7
+2022-09-11 20:11:50,288 DEBUG   SenderThread:40119 [sender.py:send_request():315] send_request: poll_exit
+2022-09-11 20:11:50,288 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: defer
+2022-09-11 20:11:50,288 INFO    HandlerThread:40119 [handler.py:handle_request_defer():161] handle defer: 7
+2022-09-11 20:11:50,289 DEBUG   SenderThread:40119 [sender.py:send_request():315] send_request: defer
+2022-09-11 20:11:50,289 INFO    SenderThread:40119 [sender.py:send_request_defer():454] handle sender defer: 7
+2022-09-11 20:11:50,289 INFO    SenderThread:40119 [dir_watcher.py:finish():362] shutting down directory watcher
+2022-09-11 20:11:50,393 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: poll_exit
+2022-09-11 20:11:51,196 INFO    SenderThread:40119 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_201134-1sppu6um/files/output.log
+2022-09-11 20:11:51,197 INFO    SenderThread:40119 [dir_watcher.py:finish():392] scan: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_201134-1sppu6um/files
+2022-09-11 20:11:51,198 INFO    SenderThread:40119 [dir_watcher.py:finish():406] scan save: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_201134-1sppu6um/files/requirements.txt requirements.txt
+2022-09-11 20:11:51,198 INFO    SenderThread:40119 [dir_watcher.py:finish():406] scan save: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_201134-1sppu6um/files/output.log output.log
+2022-09-11 20:11:51,201 INFO    SenderThread:40119 [dir_watcher.py:finish():406] scan save: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_201134-1sppu6um/files/config.yaml config.yaml
+2022-09-11 20:11:51,201 INFO    SenderThread:40119 [dir_watcher.py:finish():406] scan save: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_201134-1sppu6um/files/wandb-summary.json wandb-summary.json
+2022-09-11 20:11:51,206 INFO    SenderThread:40119 [dir_watcher.py:finish():406] scan save: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_201134-1sppu6um/files/wandb-metadata.json wandb-metadata.json
+2022-09-11 20:11:51,207 INFO    SenderThread:40119 [sender.py:transition_state():458] send defer: 8
+2022-09-11 20:11:51,207 DEBUG   SenderThread:40119 [sender.py:send_request():315] send_request: poll_exit
+2022-09-11 20:11:51,209 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: defer
+2022-09-11 20:11:51,211 INFO    HandlerThread:40119 [handler.py:handle_request_defer():161] handle defer: 8
+2022-09-11 20:11:51,211 DEBUG   SenderThread:40119 [sender.py:send_request():315] send_request: defer
+2022-09-11 20:11:51,212 INFO    SenderThread:40119 [sender.py:send_request_defer():454] handle sender defer: 8
+2022-09-11 20:11:51,212 INFO    SenderThread:40119 [file_pusher.py:finish():168] shutting down file pusher
+2022-09-11 20:11:51,317 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: poll_exit
+2022-09-11 20:11:51,318 DEBUG   SenderThread:40119 [sender.py:send_request():315] send_request: poll_exit
+2022-09-11 20:11:51,421 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: poll_exit
+2022-09-11 20:11:51,421 DEBUG   SenderThread:40119 [sender.py:send_request():315] send_request: poll_exit
+2022-09-11 20:11:51,522 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: poll_exit
+2022-09-11 20:11:51,522 DEBUG   SenderThread:40119 [sender.py:send_request():315] send_request: poll_exit
+2022-09-11 20:11:51,598 INFO    Thread-18 :40119 [upload_job.py:push():139] Uploaded file /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_201134-1sppu6um/files/requirements.txt
+2022-09-11 20:11:51,622 INFO    Thread-21 :40119 [upload_job.py:push():139] Uploaded file /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_201134-1sppu6um/files/wandb-summary.json
+2022-09-11 20:11:51,624 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: poll_exit
+2022-09-11 20:11:51,624 DEBUG   SenderThread:40119 [sender.py:send_request():315] send_request: poll_exit
+2022-09-11 20:11:51,630 INFO    Thread-19 :40119 [upload_job.py:push():139] Uploaded file /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_201134-1sppu6um/files/output.log
+2022-09-11 20:11:51,686 INFO    Thread-20 :40119 [upload_job.py:push():139] Uploaded file /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_201134-1sppu6um/files/config.yaml
+2022-09-11 20:11:51,731 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: poll_exit
+2022-09-11 20:11:51,731 DEBUG   SenderThread:40119 [sender.py:send_request():315] send_request: poll_exit
+2022-09-11 20:11:51,835 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: poll_exit
+2022-09-11 20:11:51,835 DEBUG   SenderThread:40119 [sender.py:send_request():315] send_request: poll_exit
+2022-09-11 20:11:51,888 INFO    Thread-12 (_thread_body):40119 [sender.py:transition_state():458] send defer: 9
+2022-09-11 20:11:51,889 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: defer
+2022-09-11 20:11:51,889 INFO    HandlerThread:40119 [handler.py:handle_request_defer():161] handle defer: 9
+2022-09-11 20:11:51,889 DEBUG   SenderThread:40119 [sender.py:send_request():315] send_request: defer
+2022-09-11 20:11:51,889 INFO    SenderThread:40119 [sender.py:send_request_defer():454] handle sender defer: 9
+2022-09-11 20:11:51,939 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: poll_exit
+2022-09-11 20:11:51,963 INFO    SenderThread:40119 [sender.py:transition_state():458] send defer: 10
+2022-09-11 20:11:51,964 DEBUG   SenderThread:40119 [sender.py:send_request():315] send_request: poll_exit
+2022-09-11 20:11:51,965 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: defer
+2022-09-11 20:11:51,965 INFO    HandlerThread:40119 [handler.py:handle_request_defer():161] handle defer: 10
+2022-09-11 20:11:51,965 DEBUG   SenderThread:40119 [sender.py:send_request():315] send_request: defer
+2022-09-11 20:11:51,966 INFO    SenderThread:40119 [sender.py:send_request_defer():454] handle sender defer: 10
+2022-09-11 20:11:51,966 INFO    SenderThread:40119 [sender.py:transition_state():458] send defer: 11
+2022-09-11 20:11:51,966 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: defer
+2022-09-11 20:11:51,967 INFO    HandlerThread:40119 [handler.py:handle_request_defer():161] handle defer: 11
+2022-09-11 20:11:51,967 DEBUG   SenderThread:40119 [sender.py:send():301] send: final
+2022-09-11 20:11:51,967 DEBUG   SenderThread:40119 [sender.py:send():301] send: footer
+2022-09-11 20:11:51,967 DEBUG   SenderThread:40119 [sender.py:send_request():315] send_request: defer
+2022-09-11 20:11:51,967 INFO    SenderThread:40119 [sender.py:send_request_defer():454] handle sender defer: 11
+2022-09-11 20:11:52,070 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: poll_exit
+2022-09-11 20:11:52,071 DEBUG   SenderThread:40119 [sender.py:send_request():315] send_request: poll_exit
+2022-09-11 20:11:52,071 INFO    SenderThread:40119 [file_pusher.py:join():173] waiting for file pusher
+2022-09-11 20:11:52,400 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: sampled_history
+2022-09-11 20:11:52,401 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: get_summary
+2022-09-11 20:11:52,401 INFO    MainThread:40119 [wandb_run.py:_footer_history_summary_info():3321] rendering history
+2022-09-11 20:11:52,402 INFO    MainThread:40119 [wandb_run.py:_footer_history_summary_info():3353] rendering summary
+2022-09-11 20:11:52,402 INFO    MainThread:40119 [wandb_run.py:_footer_sync_info():3277] logging synced files
+2022-09-11 20:11:52,402 DEBUG   HandlerThread:40119 [handler.py:handle_request():138] handle_request: shutdown
+2022-09-11 20:11:52,403 INFO    HandlerThread:40119 [handler.py:finish():807] shutting down handler
+2022-09-11 20:11:52,968 INFO    WriterThread:40119 [datastore.py:close():279] close: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_201134-1sppu6um/run-1sppu6um.wandb
+2022-09-11 20:11:53,301 INFO    SenderThread:40119 [sender.py:finish():1315] shutting down sender
+2022-09-11 20:11:53,301 INFO    SenderThread:40119 [file_pusher.py:finish():168] shutting down file pusher
+2022-09-11 20:11:53,301 INFO    SenderThread:40119 [file_pusher.py:join():173] waiting for file pusher
+2022-09-11 20:11:53,436 INFO    MainThread:40119 [internal.py:handle_exit():78] Internal process exited

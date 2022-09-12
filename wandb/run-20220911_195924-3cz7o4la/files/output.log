@@ -1,0 +1,27 @@
+
+
+ 79%|████████████████████████▌      | 20644/26073 [00:01<00:00, 20446.66it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+Traceback (most recent call last):
+  File "/Users/div22loaner/Documents/Advanced_NLP_662/HW1/train.py", line 42, in <module>
+    model = model.train(args.i, **vars(args))
+  File "/Users/div22loaner/Documents/Advanced_NLP_662/HW1/perceptron.py", line 111, in train
+    train_predictions = self.classify(
+  File "/Users/div22loaner/Documents/Advanced_NLP_662/HW1/perceptron.py", line 169, in classify
+    features = np.array([
+  File "/Users/div22loaner/Documents/Advanced_NLP_662/HW1/perceptron.py", line 170, in <listcomp>
+    self.get_features(tokenized_text, all_words)
+  File "/Users/div22loaner/Documents/Advanced_NLP_662/HW1/perceptron.py", line -1, in get_features
+KeyboardInterrupt

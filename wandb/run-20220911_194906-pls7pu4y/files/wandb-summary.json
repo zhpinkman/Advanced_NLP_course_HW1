@@ -1,0 +1,1 @@
+{"step": 40, "train_weighted_f1": 0.9924488533583348, "test_weighted_f1": 0.0, "_timestamp": 1662951114.4590771, "_runtime": 167.5258800983429, "_step": 4, "_wandb": {"runtime": 180}}

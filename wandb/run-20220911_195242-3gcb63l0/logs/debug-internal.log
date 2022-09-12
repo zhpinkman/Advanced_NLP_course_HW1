@@ -1,0 +1,128 @@
+2022-09-11 19:52:42,500 INFO    StreamThr :38909 [internal.py:wandb_internal():88] W&B internal server running at pid: 38909, started at: 2022-09-11 19:52:42.498637
+2022-09-11 19:52:42,503 DEBUG   HandlerThread:38909 [handler.py:handle_request():138] handle_request: status
+2022-09-11 19:52:42,505 DEBUG   SenderThread:38909 [sender.py:send_request():315] send_request: status
+2022-09-11 19:52:42,510 DEBUG   SenderThread:38909 [sender.py:send():301] send: header
+2022-09-11 19:52:42,510 INFO    WriterThread:38909 [datastore.py:open_for_write():75] open: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_195242-3gcb63l0/run-3gcb63l0.wandb
+2022-09-11 19:52:42,532 DEBUG   SenderThread:38909 [sender.py:send():301] send: run
+2022-09-11 19:52:42,862 DEBUG   HandlerThread:38909 [handler.py:handle_request():138] handle_request: check_version
+2022-09-11 19:52:42,863 INFO    SenderThread:38909 [dir_watcher.py:__init__():216] watching files in: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_195242-3gcb63l0/files
+2022-09-11 19:52:42,863 INFO    SenderThread:38909 [sender.py:_start_run_threads():912] run started: 3gcb63l0 with start time 1662951162.49185
+2022-09-11 19:52:42,863 DEBUG   SenderThread:38909 [sender.py:send():301] send: summary
+2022-09-11 19:52:42,864 INFO    SenderThread:38909 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-11 19:52:42,864 DEBUG   SenderThread:38909 [sender.py:send_request():315] send_request: check_version
+2022-09-11 19:52:42,922 DEBUG   HandlerThread:38909 [handler.py:handle_request():138] handle_request: run_start
+2022-09-11 19:52:42,923 DEBUG   HandlerThread:38909 [meta.py:__init__():34] meta init
+2022-09-11 19:52:42,923 DEBUG   HandlerThread:38909 [meta.py:__init__():49] meta init done
+2022-09-11 19:52:42,924 DEBUG   HandlerThread:38909 [meta.py:probe():215] probe
+2022-09-11 19:52:42,931 DEBUG   HandlerThread:38909 [meta.py:_setup_git():205] setup git
+2022-09-11 19:52:42,988 DEBUG   HandlerThread:38909 [meta.py:_setup_git():212] setup git done
+2022-09-11 19:52:42,989 DEBUG   HandlerThread:38909 [meta.py:_save_pip():53] save pip
+2022-09-11 19:52:42,990 DEBUG   HandlerThread:38909 [meta.py:_save_pip():67] save pip done
+2022-09-11 19:52:42,990 DEBUG   HandlerThread:38909 [meta.py:probe():253] probe done
+2022-09-11 19:52:42,997 DEBUG   SenderThread:38909 [sender.py:send():301] send: files
+2022-09-11 19:52:42,997 INFO    SenderThread:38909 [sender.py:_save_file():1155] saving file wandb-metadata.json with policy now
+2022-09-11 19:52:43,009 DEBUG   HandlerThread:38909 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-11 19:52:43,010 DEBUG   SenderThread:38909 [sender.py:send_request():315] send_request: stop_status
+2022-09-11 19:52:43,100 DEBUG   SenderThread:38909 [sender.py:send():301] send: telemetry
+2022-09-11 19:52:43,343 INFO    Thread-17 :38909 [upload_job.py:push():139] Uploaded file /var/folders/1z/c7zw_w5d5f3czksqns4x3nw00000gp/T/tmpazg8lgqqwandb/3uxq1xc1-wandb-metadata.json
+2022-09-11 19:52:44,392 INFO    Thread-13 :38909 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_195242-3gcb63l0/files/wandb-metadata.json
+2022-09-11 19:52:44,392 INFO    Thread-13 :38909 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_195242-3gcb63l0/files/wandb-summary.json
+2022-09-11 19:52:44,392 INFO    Thread-13 :38909 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_195242-3gcb63l0/files/requirements.txt
+2022-09-11 19:52:49,402 INFO    Thread-13 :38909 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_195242-3gcb63l0/files/output.log
+2022-09-11 19:52:51,407 INFO    Thread-13 :38909 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_195242-3gcb63l0/files/output.log
+2022-09-11 19:52:53,410 INFO    Thread-13 :38909 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_195242-3gcb63l0/files/output.log
+2022-09-11 19:52:58,370 DEBUG   HandlerThread:38909 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-11 19:52:58,371 DEBUG   SenderThread:38909 [sender.py:send_request():315] send_request: stop_status
+2022-09-11 19:52:59,433 INFO    Thread-13 :38909 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_195242-3gcb63l0/files/output.log
+2022-09-11 19:53:01,437 INFO    Thread-13 :38909 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_195242-3gcb63l0/files/output.log
+2022-09-11 19:53:03,439 INFO    Thread-13 :38909 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_195242-3gcb63l0/files/output.log
+2022-09-11 19:53:05,443 INFO    Thread-13 :38909 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_195242-3gcb63l0/files/output.log
+2022-09-11 19:53:07,449 INFO    Thread-13 :38909 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_195242-3gcb63l0/files/output.log
+2022-09-11 19:53:11,541 DEBUG   SenderThread:38909 [sender.py:send():301] send: stats
+2022-09-11 19:53:13,466 DEBUG   HandlerThread:38909 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-11 19:53:13,467 DEBUG   SenderThread:38909 [sender.py:send_request():315] send_request: stop_status
+2022-09-11 19:53:13,468 INFO    Thread-13 :38909 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_195242-3gcb63l0/files/output.log
+2022-09-11 19:53:13,469 INFO    Thread-13 :38909 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_195242-3gcb63l0/files/config.yaml
+2022-09-11 19:53:15,475 INFO    Thread-13 :38909 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_195242-3gcb63l0/files/output.log
+2022-09-11 19:53:28,561 DEBUG   HandlerThread:38909 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-11 19:53:28,563 DEBUG   SenderThread:38909 [sender.py:send_request():315] send_request: stop_status
+2022-09-11 19:53:32,288 DEBUG   HandlerThread:38909 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-11 19:53:33,533 INFO    Thread-13 :38909 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_195242-3gcb63l0/files/output.log
+2022-09-11 19:53:34,536 INFO    Thread-13 :38909 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_195242-3gcb63l0/files/output.log
+2022-09-11 19:53:39,544 INFO    Thread-13 :38909 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_195242-3gcb63l0/files/output.log
+2022-09-11 19:53:41,550 INFO    Thread-13 :38909 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_195242-3gcb63l0/files/output.log
+2022-09-11 19:53:42,162 DEBUG   SenderThread:38909 [sender.py:send():301] send: stats
+2022-09-11 19:53:43,552 INFO    Thread-13 :38909 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_195242-3gcb63l0/files/output.log
+2022-09-11 19:53:43,674 DEBUG   HandlerThread:38909 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-11 19:53:43,675 DEBUG   SenderThread:38909 [sender.py:send_request():315] send_request: stop_status
+2022-09-11 19:53:43,868 DEBUG   HandlerThread:38909 [handler.py:handle_request():138] handle_request: poll_exit
+2022-09-11 19:53:43,868 DEBUG   SenderThread:38909 [sender.py:send():301] send: exit
+2022-09-11 19:53:43,869 INFO    SenderThread:38909 [sender.py:send_exit():437] handling exit code: 255
+2022-09-11 19:53:43,869 INFO    SenderThread:38909 [sender.py:send_exit():439] handling runtime: 60
+2022-09-11 19:53:43,870 INFO    SenderThread:38909 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-11 19:53:43,871 INFO    SenderThread:38909 [sender.py:send_exit():445] send defer
+2022-09-11 19:53:43,871 DEBUG   SenderThread:38909 [sender.py:send_request():315] send_request: poll_exit
+2022-09-11 19:53:43,871 DEBUG   HandlerThread:38909 [handler.py:handle_request():138] handle_request: defer
+2022-09-11 19:53:43,872 INFO    HandlerThread:38909 [handler.py:handle_request_defer():161] handle defer: 0
+2022-09-11 19:53:43,872 DEBUG   SenderThread:38909 [sender.py:send_request():315] send_request: defer
+2022-09-11 19:53:43,872 INFO    SenderThread:38909 [sender.py:send_request_defer():454] handle sender defer: 0
+2022-09-11 19:53:43,872 INFO    SenderThread:38909 [sender.py:transition_state():458] send defer: 1
+2022-09-11 19:53:43,872 DEBUG   HandlerThread:38909 [handler.py:handle_request():138] handle_request: defer
+2022-09-11 19:53:43,872 INFO    HandlerThread:38909 [handler.py:handle_request_defer():161] handle defer: 1
+2022-09-11 19:53:43,893 DEBUG   SenderThread:38909 [sender.py:send_request():315] send_request: defer
+2022-09-11 19:53:43,893 INFO    SenderThread:38909 [sender.py:send_request_defer():454] handle sender defer: 1
+2022-09-11 19:53:43,893 INFO    SenderThread:38909 [sender.py:transition_state():458] send defer: 2
+2022-09-11 19:53:43,894 DEBUG   SenderThread:38909 [sender.py:send():301] send: stats
+2022-09-11 19:53:43,894 DEBUG   HandlerThread:38909 [handler.py:handle_request():138] handle_request: defer
+2022-09-11 19:53:43,894 INFO    HandlerThread:38909 [handler.py:handle_request_defer():161] handle defer: 2
+2022-09-11 19:53:43,895 DEBUG   SenderThread:38909 [sender.py:send():301] send: history
+2022-09-11 19:53:43,895 DEBUG   SenderThread:38909 [sender.py:send():301] send: summary
+2022-09-11 19:53:43,896 INFO    SenderThread:38909 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-11 19:53:43,896 DEBUG   SenderThread:38909 [sender.py:send_request():315] send_request: defer
+2022-09-11 19:53:43,896 INFO    SenderThread:38909 [sender.py:send_request_defer():454] handle sender defer: 2
+2022-09-11 19:53:43,896 INFO    SenderThread:38909 [sender.py:transition_state():458] send defer: 3
+2022-09-11 19:53:43,896 DEBUG   HandlerThread:38909 [handler.py:handle_request():138] handle_request: defer
+2022-09-11 19:53:43,896 INFO    HandlerThread:38909 [handler.py:handle_request_defer():161] handle defer: 3
+2022-09-11 19:53:43,897 DEBUG   SenderThread:38909 [sender.py:send_request():315] send_request: defer
+2022-09-11 19:53:43,897 INFO    SenderThread:38909 [sender.py:send_request_defer():454] handle sender defer: 3
+2022-09-11 19:53:43,897 INFO    SenderThread:38909 [sender.py:transition_state():458] send defer: 4
+2022-09-11 19:53:43,897 DEBUG   HandlerThread:38909 [handler.py:handle_request():138] handle_request: defer
+2022-09-11 19:53:43,897 INFO    HandlerThread:38909 [handler.py:handle_request_defer():161] handle defer: 4
+2022-09-11 19:53:43,897 DEBUG   SenderThread:38909 [sender.py:send():301] send: summary
+2022-09-11 19:53:43,897 INFO    SenderThread:38909 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-11 19:53:43,898 DEBUG   SenderThread:38909 [sender.py:send_request():315] send_request: defer
+2022-09-11 19:53:43,898 INFO    SenderThread:38909 [sender.py:send_request_defer():454] handle sender defer: 4
+2022-09-11 19:53:43,898 INFO    SenderThread:38909 [sender.py:transition_state():458] send defer: 5
+2022-09-11 19:53:43,898 DEBUG   HandlerThread:38909 [handler.py:handle_request():138] handle_request: defer
+2022-09-11 19:53:43,898 INFO    HandlerThread:38909 [handler.py:handle_request_defer():161] handle defer: 5
+2022-09-11 19:53:43,898 DEBUG   SenderThread:38909 [sender.py:send_request():315] send_request: defer
+2022-09-11 19:53:43,898 INFO    SenderThread:38909 [sender.py:send_request_defer():454] handle sender defer: 5
+2022-09-11 19:53:43,898 INFO    SenderThread:38909 [sender.py:transition_state():458] send defer: 6
+2022-09-11 19:53:43,898 DEBUG   HandlerThread:38909 [handler.py:handle_request():138] handle_request: defer
+2022-09-11 19:53:43,899 INFO    HandlerThread:38909 [handler.py:handle_request_defer():161] handle defer: 6
+2022-09-11 19:53:43,899 DEBUG   SenderThread:38909 [sender.py:send_request():315] send_request: defer
+2022-09-11 19:53:43,899 INFO    SenderThread:38909 [sender.py:send_request_defer():454] handle sender defer: 6
+2022-09-11 19:53:43,972 DEBUG   HandlerThread:38909 [handler.py:handle_request():138] handle_request: poll_exit
+2022-09-11 19:53:44,555 INFO    Thread-13 :38909 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_195242-3gcb63l0/files/wandb-summary.json
+2022-09-11 19:53:45,559 INFO    Thread-13 :38909 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_195242-3gcb63l0/files/output.log
+2022-09-11 19:53:46,304 INFO    SenderThread:38909 [sender.py:transition_state():458] send defer: 7
+2022-09-11 19:53:46,304 DEBUG   SenderThread:38909 [sender.py:send_request():315] send_request: poll_exit
+2022-09-11 19:53:46,305 DEBUG   HandlerThread:38909 [handler.py:handle_request():138] handle_request: defer
+2022-09-11 19:53:46,305 INFO    HandlerThread:38909 [handler.py:handle_request_defer():161] handle defer: 7
+2022-09-11 19:53:46,305 DEBUG   SenderThread:38909 [sender.py:send_request():315] send_request: defer
+2022-09-11 19:53:46,305 INFO    SenderThread:38909 [sender.py:send_request_defer():454] handle sender defer: 7
+2022-09-11 19:53:46,305 INFO    SenderThread:38909 [dir_watcher.py:finish():362] shutting down directory watcher
+2022-09-11 19:53:46,564 INFO    Thread-13 :38909 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_195242-3gcb63l0/files/output.log
+2022-09-11 19:53:46,565 INFO    SenderThread:38909 [dir_watcher.py:finish():392] scan: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_195242-3gcb63l0/files
+2022-09-11 19:53:46,566 INFO    SenderThread:38909 [dir_watcher.py:finish():406] scan save: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_195242-3gcb63l0/files/requirements.txt requirements.txt
+2022-09-11 19:53:46,566 INFO    SenderThread:38909 [dir_watcher.py:finish():406] scan save: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_195242-3gcb63l0/files/output.log output.log
+2022-09-11 19:53:46,567 INFO    SenderThread:38909 [dir_watcher.py:finish():406] scan save: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_195242-3gcb63l0/files/config.yaml config.yaml
+2022-09-11 19:53:46,571 INFO    SenderThread:38909 [dir_watcher.py:finish():406] scan save: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_195242-3gcb63l0/files/wandb-summary.json wandb-summary.json
+2022-09-11 19:53:46,576 INFO    SenderThread:38909 [dir_watcher.py:finish():406] scan save: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220911_195242-3gcb63l0/files/wandb-metadata.json wandb-metadata.json
+2022-09-11 19:53:46,576 INFO    SenderThread:38909 [sender.py:transition_state():458] send defer: 8
+2022-09-11 19:53:46,577 DEBUG   HandlerThread:38909 [handler.py:handle_request():138] handle_request: defer
+2022-09-11 19:53:46,577 INFO    HandlerThread:38909 [handler.py:handle_request_defer():161] handle defer: 8
+2022-09-11 19:53:46,579 DEBUG   SenderThread:38909 [sender.py:send_request():315] send_request: defer
+2022-09-11 19:53:46,580 INFO    SenderThread:38909 [sender.py:send_request_defer():454] handle sender defer: 8
+2022-09-11 19:53:46,580 INFO    SenderThread:38909 [file_pusher.py:finish():168] shutting down file pusher
+2022-09-11 19:53:46,777 INFO    MainThread:38909 [internal.py:handle_exit():78] Internal process exited

@@ -1,12 +1,12 @@
 """ 
     Basic feature extractor
 """
-from collections import defaultdict
 from collections import Counter, defaultdict
-from email.policy import default
 from operator import methodcaller
 import string
 from consts import STOP_WORDS
+import pandas as pd
+from IPython import embed
 
 
 def tokenize(text: str):
@@ -50,8 +50,24 @@ class Features:
 
 class BOWFeatures(Features):
 
-    def __init__(self, data_file):
-        super().__init__(data_file=data_file)
+    def __init__(self, data_file, no_labels=False):
+        with open(data_file) as file:
+            data = file.read().splitlines()
+
+        data_split = map(methodcaller("rsplit", "\t", 1), data)
+        if no_labels:
+            texts = list(map(list, zip(*data_split)))[0]
+            self.labels = None
+            self.labelset = None
+        else:
+            texts, self.labels = map(list, zip(*data_split))
+            self.labelset = list(set(self.labels))
+
+        self.tokenized_text = [tokenize(text) for text in texts]
+
+    # def load_hedonometer(self):
+    #     df = pd.read_csv('Hedonometer.csv')
+    #     self.word_happiness = {}
 
     @classmethod
     def get_features(cls, tokenized, model):
@@ -64,3 +80,13 @@ class BOWFeatures(Features):
                 words_counts
             )
         return sents_words_counts
+
+    # def
+
+
+if __name__ == "__main__":
+    feature_class = BOWFeatures(
+        data_file='datasets/custom/products.train.txt.train',
+        no_labels=True
+    )
+    embed()

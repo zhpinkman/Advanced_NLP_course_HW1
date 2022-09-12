@@ -1,0 +1,9 @@
+
+
+ 86%|██████████████████████████▌    | 22293/26073 [00:01<00:00, 21943.38it/s]
+Traceback (most recent call last):
+  File "/Users/div22loaner/Documents/Advanced_NLP_662/HW1/train.py", line 42, in <module>
+    model = model.train(args.i, **vars(args))
+  File "/Users/div22loaner/Documents/Advanced_NLP_662/HW1/perceptron.py", line 88, in train
+    for i, label in enumerate(classes)
+KeyboardInterrupt

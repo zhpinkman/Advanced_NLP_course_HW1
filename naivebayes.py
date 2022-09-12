@@ -14,7 +14,6 @@ from IPython import embed
 from Model import *
 from Features import Features, BOWFeatures
 from collections import defaultdict
-from sklearn.metrics import classification_report
 
 
 class NaiveBayes(Model):
@@ -47,7 +46,7 @@ class NaiveBayes(Model):
         }
         return word_counts_per_class, word_counts_total_per_class
 
-    def train(self, input_file):
+    def train(self, input_file, **kwargs):
         """
         This method is used to train your models and generated for a given input_file a trained model
         :param input_file: path to training file with a text and a label per each line
@@ -102,7 +101,7 @@ class NaiveBayes(Model):
         word_counts_total_per_class = model['word_counts_total_per_class']
         all_classes_vocab = model['all_classes_vocab']
 
-        feature_class = BOWFeatures(data_file=input_file)
+        feature_class = BOWFeatures(data_file=input_file, no_labels=True)
         sents_words_counts = feature_class.get_features(
             feature_class.tokenized_text,
             None
@@ -131,8 +130,6 @@ class NaiveBayes(Model):
                 np.argmax(list(result_probs.values()))
             ]
             preds.append(predicted_label)
-
-        print(classification_report(feature_class.labels, preds))
 
         return preds
 

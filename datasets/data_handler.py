@@ -33,5 +33,9 @@ if __name__ == "__main__":
                 f.write(f"{text}\t{label}\n")
 
         with open(os.path.join('custom', f"{dataset}.test"), 'w') as f:
-            for text, label in zip(X_test, y_test):
-                f.write(f"{text}\t{label}\n")
+            for text in X_test:
+                f.write(f"{text}\n")
+
+        with open(os.path.join('custom', f"{dataset}.true"), 'w') as f:
+            for label in y_test:
+                f.write(f"{label}\n")
