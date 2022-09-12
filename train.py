@@ -19,6 +19,9 @@ def get_arguments():
     parser.add_argument(
         "--epochs", help='Number of epochs for the training stage', type=int, default=80
     )
+    parser.add_argument(
+        "--ngram", help="cap of the ngram getting used for the bag of words featurization", type=int, default=3
+    )
     # Respect the naming convention for the model: make sure to name it {nb, perceptron}.{4dim, authors, odiya, products}.model for your best models in your workplace otherwise the grading script will fail
     parser.add_argument("-o", help="path of the file where the model is saved")
 

@@ -1,0 +1,7 @@
+
+Traceback (most recent call last):
+  File "/Users/div22loaner/Documents/Advanced_NLP_662/HW1/train.py", line 45, in <module>
+    model = model.train(args.i, **vars(args))
+  File "/Users/div22loaner/Documents/Advanced_NLP_662/HW1/perceptron.py", line 42, in train
+    features, features_means, features_stds = feature_class.process_features(
+TypeError: BOWFeatures.process_features() got an unexpected keyword argument 'all_words'

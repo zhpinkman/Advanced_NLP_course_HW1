@@ -12,14 +12,13 @@ from tqdm import tqdm
 import numpy as np
 from IPython import embed
 from Model import *
-from Features import Features, BOWFeatures
+from Features import BOWFeatures
 from collections import defaultdict
 
 
 class NaiveBayes(Model):
 
-    @classmethod
-    def get_class_probs(cls, feature_class: Features):
+    def get_class_probs(self, feature_class: BOWFeatures):
         labels = feature_class.labels
         class_probs = {
             label: len(np.where(np.array(labels) == label)[0])
@@ -27,14 +26,10 @@ class NaiveBayes(Model):
         }
         return class_probs
 
-    @classmethod
-    def get_word_counts_per_class(cls, feature_class: Features):
-        sents_words_counts = feature_class.get_features(
-            feature_class.tokenized_text
-        )
+    def get_word_counts_per_class(self, feature_class: BOWFeatures):
         word_counts_per_class = defaultdict(lambda: defaultdict(int))
 
-        for words_counts, label in tqdm(zip(sents_words_counts, feature_class.labels), leave=False):
+        for words_counts, label in tqdm(zip(feature_class.sents_words_counts, feature_class.labels), leave=False):
             for word, count in words_counts.items():
                 word_counts_per_class[label][word] += count
 
@@ -51,7 +46,8 @@ class NaiveBayes(Model):
         :param input_file: path to training file with a text and a label per each line
         :return: model: trained model
         """
-        feature_class = BOWFeatures(data_file=input_file)
+        feature_class = BOWFeatures(
+            data_file=input_file, ngrams=(1, kwargs['ngram']))
         word_counts_per_class, word_counts_total_per_class = self.get_word_counts_per_class(
             feature_class=feature_class
         )
@@ -80,7 +76,8 @@ class NaiveBayes(Model):
             "classes": feature_class.labelset,
             "class_probs": self.get_class_probs(feature_class=feature_class),
             "word_counts_total_per_class": word_counts_total_per_class,
-            "all_classes_vocab": all_classes_vocab
+            "all_classes_vocab": all_classes_vocab,
+            "ngram": kwargs['ngram']
         }
         # Save the model
         self.save_model(model)
@@ -99,15 +96,17 @@ class NaiveBayes(Model):
         class_probs = model['class_probs']
         word_counts_total_per_class = model['word_counts_total_per_class']
         all_classes_vocab = model['all_classes_vocab']
+        ngram = model['ngram']
 
-        feature_class = BOWFeatures(data_file=input_file, no_labels=True)
-        sents_words_counts = feature_class.get_features(
-            feature_class.tokenized_text
+        feature_class = BOWFeatures(
+            data_file=input_file,
+            no_labels=True,
+            ngrams=(1, ngram)
         )
 
         preds = []
 
-        for words_counts in sents_words_counts:
+        for words_counts in feature_class.sents_words_counts:
             result_probs = {
                 label: math.log(class_probs[label])
                 for label in classes

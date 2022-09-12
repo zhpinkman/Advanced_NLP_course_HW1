@@ -38,29 +38,29 @@ class LogisticRegression(Model):
 
         onehot_encoder = OneHotEncoder(sparse=False)
 
-        wandb.init(project=f"Logistic Regression Normalized Features BOW - dataset {input_file.replace('/', '')}",
+        wandb.init(project=f"Logistic Regression Normalized Features BOW - ngram {kwargs['ngram']} - dataset {input_file.replace('/', '')}",
                    entity="zhpinkman")
 
-        feature_class = BOWFeatures(data_file=input_file)
+        feature_class = BOWFeatures(
+            data_file=input_file,
+            ngrams=(1, kwargs['ngram'])
+        )
 
         train_labels = feature_class.labels
         with open(kwargs['devlabels'], 'r') as f:
             test_labels = f.read().splitlines()
 
-        all_words = feature_class.get_all_words()
-        features, features_means, features_stds = feature_class.process_features(
-            all_words=all_words,
-            features_means=None,
-            features_stds=None
-        )
+        features = feature_class.process_features()
 
         test_feature_class = BOWFeatures(
-            data_file=kwargs['dev'], no_labels=True)
-        test_features, _, _ = test_feature_class.process_features(
-            all_words=all_words,
-            features_means=features_means,
-            features_stds=features_stds
+            data_file=kwargs['dev'],
+            no_labels=True,
+            ngrams=(1, kwargs['ngram']),
+            all_words=feature_class.all_words,
+            features_means=feature_class.features_means,
+            features_stds=feature_class.features_stds
         )
+        test_features = test_feature_class.process_features()
 
         classes = feature_class.labelset
         label2index = {
@@ -98,10 +98,8 @@ class LogisticRegression(Model):
 
         model = {
             'label2index': label2index,
-            'all_words': all_words,
             'W': W,
-            'features_means': features_means,
-            'features_stds': features_stds
+            'feature_class': feature_class
         }
 
         # Save the model
@@ -118,17 +116,18 @@ class LogisticRegression(Model):
         """
         W = model['W']
         label2index = model['label2index']
-        all_words = model['all_words']
-        features_means = model['features_means']
-        features_stds = model['features_stds']
+        feature_class: BOWFeatures = model['feature_class']
 
-        feature_class = BOWFeatures(data_file=input_file, no_labels=True)
-
-        features, _, _ = feature_class.process_features(
-            all_words=all_words,
-            features_means=features_means,
-            features_stds=features_stds
+        test_feature_class = BOWFeatures(
+            data_file=input_file,
+            no_labels=True,
+            ngrams=feature_class.ngrams,
+            all_words=feature_class.all_words,
+            features_means=feature_class.features_means,
+            features_stds=feature_class.features_stds
         )
+
+        features = test_feature_class.process_features()
 
         Z = - features @ W
         P = softmax(Z, axis=1)

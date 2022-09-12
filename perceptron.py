@@ -25,33 +25,33 @@ class Perceptron(Model):
         """
         This method is used to train your models and generated for a given input_file a trained model
         :param input_file: path to training file with a text and a label per each line
-        :return: model: trained model 
+        :return: model: trained model
         """
 
-        # wandb.init(project=f"Perceptron Normalized Features BOW - dataset {input_file.replace('/', '')}",
-        #            entity="zhpinkman")
+        wandb.init(project=f"Perceptron Normalized Features BOW - ngram {kwargs['ngram']} - dataset {input_file.replace('/', '')}",
+                   entity="zhpinkman")
 
-        feature_class = BOWFeatures(data_file=input_file)
+        feature_class = BOWFeatures(
+            data_file=input_file,
+            ngrams=(1, kwargs['ngram'])
+        )
 
         train_labels = feature_class.labels
         with open(kwargs['devlabels'], 'r') as f:
             test_labels = f.read().splitlines()
 
-        all_words = feature_class.get_all_words()
-        features, features_means, features_stds = feature_class.process_features(
-            all_words=all_words,
-            features_means=None,
-            features_stds=None
-        )
+        features = feature_class.process_features()
 
         test_feature_class = BOWFeatures(
-            data_file=kwargs['dev'], no_labels=True)
-
-        test_features, _, _ = test_feature_class.process_features(
-            all_words=all_words,
-            features_means=features_means,
-            features_stds=features_stds
+            data_file=kwargs['dev'],
+            no_labels=True,
+            ngrams=(1, kwargs['ngram']),
+            all_words=feature_class.all_words,
+            features_means=feature_class.features_means,
+            features_stds=feature_class.features_stds
         )
+
+        test_features = test_feature_class.process_features()
 
         classes = feature_class.labelset
         label2index = {
@@ -61,7 +61,7 @@ class Perceptron(Model):
         labels_transformed = [label2index[label]
                               for label in feature_class.labels]
         # weight vector with size (#classes, #vocab + 1)
-        W = np.zeros(shape=[len(classes), len(all_words) + 1])
+        W = np.zeros(shape=[len(classes), features.shape[1] + 1])
         W[:, 0] = np.array([1])
 
         for epoch in range(kwargs['epochs']):
@@ -76,10 +76,8 @@ class Perceptron(Model):
 
             model = {
                 'label2index': label2index,
-                'all_words': all_words,
                 'W': W,
-                'features_means': features_means,
-                'features_stds': features_stds
+                'feature_class': feature_class
             }
 
             train_predictions = self.classify(
@@ -104,10 +102,10 @@ class Perceptron(Model):
                 predictions=test_predictions
             )
 
-            # wandb.log({
-            #     'train_weighted_f1': train_weighted_f1,
-            #     'test_weighted_f1': test_weighted_f1
-            # }, step=epoch)
+            wandb.log({
+                'train_weighted_f1': train_weighted_f1,
+                'test_weighted_f1': test_weighted_f1
+            }, step=epoch)
 
             # print("Epoch: {:>3} | train w-f1: ".format(
             # epoch) + f"{train_weighted_f1 * 100:.2e}" + " | Valid w-f1: " + f"{test_weighted_f1 * 100:.2e}")
@@ -119,7 +117,7 @@ class Perceptron(Model):
 
     def classify(self, input_file, model, features=None):
         """
-        This method will be called by us for the validation stage and or you can call it for evaluating your code 
+        This method will be called by us for the validation stage and or you can call it for evaluating your code
         on your own splits on top of the training sets seen to you
         :param input_file: path to input file with a text per line without labels
         :param model: the pretrained model
@@ -127,18 +125,19 @@ class Perceptron(Model):
         """
         W = model['W']
         label2index = model['label2index']
-        all_words = model['all_words']
-        features_means = model['features_means']
-        features_stds = model['features_stds']
+        feature_class: BOWFeatures = model['feature_class']
 
         if features is None:
-            feature_class = BOWFeatures(data_file=input_file, no_labels=True)
-
-            features, _, _ = feature_class.process_features(
-                all_words=all_words,
-                features_means=features_means,
-                features_stds=features_stds
+            test_feature_class = BOWFeatures(
+                data_file=input_file,
+                no_labels=True,
+                ngrams=feature_class.ngrams,
+                all_words=feature_class.all_words,
+                features_means=feature_class.features_means,
+                features_stds=feature_class.features_stds
             )
+
+            features = test_feature_class.process_features()
 
         predictions = []
         for i in range(features.shape[0]):

@@ -1,0 +1,35 @@
+{
+    "os": "macOS-11.6.8-x86_64-i386-64bit",
+    "python": "3.10.6",
+    "heartbeatAt": "2022-09-12T08:21:34.986992",
+    "startedAt": "2022-09-12T08:21:34.436926",
+    "docker": null,
+    "cpu_count": 8,
+    "cuda": null,
+    "args": [
+        "-m",
+        "perceptron",
+        "-i",
+        "datasets/custom/products.train.txt.train",
+        "-o",
+        "perceptron.products.model",
+        "--dev",
+        "datasets/custom/products.train.txt.test",
+        "--devlabels",
+        "datasets/custom/products.train.txt.true",
+        "--epochs",
+        "40"
+    ],
+    "state": "running",
+    "program": "/Users/div22loaner/Documents/Advanced_NLP_662/HW1/train.py",
+    "codePath": "train.py",
+    "git": {
+        "remote": "git@github.com:zhpinkman/Advanced_NLP_course_HW1.git",
+        "commit": "dfc777f9d8d9c96d2bcf6f804f94eb07bfaec22c"
+    },
+    "email": null,
+    "root": "/Users/div22loaner/Documents/Advanced_NLP_662/HW1",
+    "host": "D22ML-LOANER3.local",
+    "username": "div22loaner",
+    "executable": "/usr/local/opt/python@3.10/bin/python3.10"
+}

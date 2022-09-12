@@ -1,0 +1,338 @@
+2022-09-12 01:19:15,939 INFO    StreamThr :53143 [internal.py:wandb_internal():88] W&B internal server running at pid: 53143, started at: 2022-09-12 01:19:15.936648
+2022-09-12 01:19:15,940 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: status
+2022-09-12 01:19:15,944 DEBUG   SenderThread:53143 [sender.py:send_request():315] send_request: status
+2022-09-12 01:19:15,946 DEBUG   SenderThread:53143 [sender.py:send():301] send: header
+2022-09-12 01:19:15,947 INFO    WriterThread:53143 [datastore.py:open_for_write():75] open: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/run-1xx4fg4h.wandb
+2022-09-12 01:19:15,976 DEBUG   SenderThread:53143 [sender.py:send():301] send: run
+2022-09-12 01:19:16,197 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: check_version
+2022-09-12 01:19:16,198 INFO    SenderThread:53143 [dir_watcher.py:__init__():216] watching files in: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files
+2022-09-12 01:19:16,198 INFO    SenderThread:53143 [sender.py:_start_run_threads():912] run started: 1xx4fg4h with start time 1662970755.929161
+2022-09-12 01:19:16,198 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:16,199 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:16,199 DEBUG   SenderThread:53143 [sender.py:send_request():315] send_request: check_version
+2022-09-12 01:19:16,256 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: run_start
+2022-09-12 01:19:16,257 DEBUG   HandlerThread:53143 [meta.py:__init__():34] meta init
+2022-09-12 01:19:16,257 DEBUG   HandlerThread:53143 [meta.py:__init__():49] meta init done
+2022-09-12 01:19:16,260 DEBUG   HandlerThread:53143 [meta.py:probe():215] probe
+2022-09-12 01:19:16,266 DEBUG   HandlerThread:53143 [meta.py:_setup_git():205] setup git
+2022-09-12 01:19:16,319 DEBUG   HandlerThread:53143 [meta.py:_setup_git():212] setup git done
+2022-09-12 01:19:16,320 DEBUG   HandlerThread:53143 [meta.py:_save_pip():53] save pip
+2022-09-12 01:19:16,321 DEBUG   HandlerThread:53143 [meta.py:_save_pip():67] save pip done
+2022-09-12 01:19:16,321 DEBUG   HandlerThread:53143 [meta.py:probe():253] probe done
+2022-09-12 01:19:16,328 DEBUG   SenderThread:53143 [sender.py:send():301] send: files
+2022-09-12 01:19:16,328 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-metadata.json with policy now
+2022-09-12 01:19:16,337 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-12 01:19:16,337 DEBUG   SenderThread:53143 [sender.py:send_request():315] send_request: stop_status
+2022-09-12 01:19:16,426 DEBUG   SenderThread:53143 [sender.py:send():301] send: telemetry
+2022-09-12 01:19:16,692 INFO    Thread-17 :53143 [upload_job.py:push():139] Uploaded file /var/folders/1z/c7zw_w5d5f3czksqns4x3nw00000gp/T/tmptr56g9djwandb/335nu7fb-wandb-metadata.json
+2022-09-12 01:19:17,209 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json
+2022-09-12 01:19:17,209 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/output.log
+2022-09-12 01:19:17,209 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/requirements.txt
+2022-09-12 01:19:17,209 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-metadata.json
+2022-09-12 01:19:18,719 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:19,465 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:19,466 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:19,467 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:19,468 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:20,196 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:20,196 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:20,196 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:20,197 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:20,219 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json
+2022-09-12 01:19:20,932 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:20,933 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:20,933 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:20,935 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:21,224 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json
+2022-09-12 01:19:21,823 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:21,823 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:21,823 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:21,824 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:22,228 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json
+2022-09-12 01:19:22,545 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:22,546 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:22,546 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:22,547 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:23,231 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json
+2022-09-12 01:19:23,273 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:23,274 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:23,274 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:23,276 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:24,007 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:24,008 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:24,008 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:24,009 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:24,233 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json
+2022-09-12 01:19:24,681 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:24,682 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:24,682 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:24,683 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:25,248 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json
+2022-09-12 01:19:25,350 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:25,351 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:25,351 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:25,353 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:26,022 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:26,022 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:26,022 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:26,024 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:26,251 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json
+2022-09-12 01:19:26,689 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:26,689 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:26,690 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:26,691 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:27,254 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json
+2022-09-12 01:19:27,359 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:27,359 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:27,359 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:27,362 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:28,041 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:28,042 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:28,042 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:28,044 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:28,255 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json
+2022-09-12 01:19:28,732 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:28,733 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:28,733 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:28,735 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:29,262 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json
+2022-09-12 01:19:29,405 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:29,406 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:29,406 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:29,408 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:30,180 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:30,181 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:30,181 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:30,182 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:30,272 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json
+2022-09-12 01:19:30,904 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:30,904 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:30,905 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:30,906 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:31,273 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json
+2022-09-12 01:19:31,445 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-12 01:19:31,446 DEBUG   SenderThread:53143 [sender.py:send_request():315] send_request: stop_status
+2022-09-12 01:19:31,622 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:31,623 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:31,623 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:31,625 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:32,273 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json
+2022-09-12 01:19:32,303 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:32,303 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:32,304 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:32,305 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:32,975 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:32,976 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:32,976 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:32,977 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:33,277 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json
+2022-09-12 01:19:33,650 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:33,650 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:33,651 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:33,652 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:34,281 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json
+2022-09-12 01:19:34,325 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:34,326 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:34,326 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:34,327 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:35,007 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:35,008 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:35,008 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:35,009 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:35,288 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json
+2022-09-12 01:19:35,680 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:35,681 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:35,681 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:35,683 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:36,290 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json
+2022-09-12 01:19:36,358 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:36,358 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:36,358 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:36,359 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:37,034 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:37,034 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:37,035 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:37,036 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:37,292 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json
+2022-09-12 01:19:37,714 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:37,715 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:37,715 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:37,717 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:38,297 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json
+2022-09-12 01:19:38,390 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:38,391 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:38,391 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:38,392 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:39,071 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:39,072 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:39,072 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:39,073 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:39,304 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json
+2022-09-12 01:19:39,753 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:39,753 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:39,754 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:39,755 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:40,317 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json
+2022-09-12 01:19:40,438 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:40,439 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:40,439 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:40,440 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:41,217 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:41,218 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:41,218 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:41,219 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:41,319 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json
+2022-09-12 01:19:42,241 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:42,242 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:42,242 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:42,244 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:42,324 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json
+2022-09-12 01:19:43,038 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:43,038 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:43,039 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:43,040 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:43,325 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json
+2022-09-12 01:19:43,733 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:43,733 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:43,734 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:43,735 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:44,330 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json
+2022-09-12 01:19:44,445 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:44,446 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:44,446 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:44,448 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:45,049 DEBUG   SenderThread:53143 [sender.py:send():301] send: stats
+2022-09-12 01:19:45,148 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:45,148 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:45,149 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:45,150 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:45,334 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json
+2022-09-12 01:19:45,848 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:45,848 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:45,849 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:45,850 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:46,336 INFO    Thread-13 :53143 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json
+2022-09-12 01:19:46,553 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: partial_history
+2022-09-12 01:19:46,554 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:46,590 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: stop_status
+2022-09-12 01:19:46,591 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: poll_exit
+2022-09-12 01:19:46,669 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:46,670 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:46,670 DEBUG   SenderThread:53143 [sender.py:send_request():315] send_request: stop_status
+2022-09-12 01:19:46,759 DEBUG   SenderThread:53143 [sender.py:send():301] send: exit
+2022-09-12 01:19:46,759 INFO    SenderThread:53143 [sender.py:send_exit():437] handling exit code: 0
+2022-09-12 01:19:46,760 INFO    SenderThread:53143 [sender.py:send_exit():439] handling runtime: 30
+2022-09-12 01:19:46,761 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:46,761 INFO    SenderThread:53143 [sender.py:send_exit():445] send defer
+2022-09-12 01:19:46,761 DEBUG   SenderThread:53143 [sender.py:send_request():315] send_request: poll_exit
+2022-09-12 01:19:46,761 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: defer
+2022-09-12 01:19:46,762 INFO    HandlerThread:53143 [handler.py:handle_request_defer():161] handle defer: 0
+2022-09-12 01:19:46,762 DEBUG   SenderThread:53143 [sender.py:send_request():315] send_request: defer
+2022-09-12 01:19:46,762 INFO    SenderThread:53143 [sender.py:send_request_defer():454] handle sender defer: 0
+2022-09-12 01:19:46,762 INFO    SenderThread:53143 [sender.py:transition_state():458] send defer: 1
+2022-09-12 01:19:46,763 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: defer
+2022-09-12 01:19:46,763 INFO    HandlerThread:53143 [handler.py:handle_request_defer():161] handle defer: 1
+2022-09-12 01:19:46,770 DEBUG   SenderThread:53143 [sender.py:send_request():315] send_request: defer
+2022-09-12 01:19:46,771 INFO    SenderThread:53143 [sender.py:send_request_defer():454] handle sender defer: 1
+2022-09-12 01:19:46,771 INFO    SenderThread:53143 [sender.py:transition_state():458] send defer: 2
+2022-09-12 01:19:46,771 DEBUG   SenderThread:53143 [sender.py:send():301] send: stats
+2022-09-12 01:19:46,771 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: defer
+2022-09-12 01:19:46,771 INFO    HandlerThread:53143 [handler.py:handle_request_defer():161] handle defer: 2
+2022-09-12 01:19:46,772 DEBUG   SenderThread:53143 [sender.py:send():301] send: history
+2022-09-12 01:19:46,772 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:46,773 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:46,773 DEBUG   SenderThread:53143 [sender.py:send_request():315] send_request: defer
+2022-09-12 01:19:46,773 INFO    SenderThread:53143 [sender.py:send_request_defer():454] handle sender defer: 2
+2022-09-12 01:19:46,773 INFO    SenderThread:53143 [sender.py:transition_state():458] send defer: 3
+2022-09-12 01:19:46,773 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: defer
+2022-09-12 01:19:46,773 INFO    HandlerThread:53143 [handler.py:handle_request_defer():161] handle defer: 3
+2022-09-12 01:19:46,773 DEBUG   SenderThread:53143 [sender.py:send_request():315] send_request: defer
+2022-09-12 01:19:46,774 INFO    SenderThread:53143 [sender.py:send_request_defer():454] handle sender defer: 3
+2022-09-12 01:19:46,774 INFO    SenderThread:53143 [sender.py:transition_state():458] send defer: 4
+2022-09-12 01:19:46,774 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: defer
+2022-09-12 01:19:46,774 INFO    HandlerThread:53143 [handler.py:handle_request_defer():161] handle defer: 4
+2022-09-12 01:19:46,774 DEBUG   SenderThread:53143 [sender.py:send():301] send: summary
+2022-09-12 01:19:46,775 INFO    SenderThread:53143 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2022-09-12 01:19:46,775 DEBUG   SenderThread:53143 [sender.py:send_request():315] send_request: defer
+2022-09-12 01:19:46,775 INFO    SenderThread:53143 [sender.py:send_request_defer():454] handle sender defer: 4
+2022-09-12 01:19:46,775 INFO    SenderThread:53143 [sender.py:transition_state():458] send defer: 5
+2022-09-12 01:19:46,775 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: defer
+2022-09-12 01:19:46,775 INFO    HandlerThread:53143 [handler.py:handle_request_defer():161] handle defer: 5
+2022-09-12 01:19:46,776 DEBUG   SenderThread:53143 [sender.py:send_request():315] send_request: defer
+2022-09-12 01:19:46,776 INFO    SenderThread:53143 [sender.py:send_request_defer():454] handle sender defer: 5
+2022-09-12 01:19:46,776 INFO    SenderThread:53143 [sender.py:transition_state():458] send defer: 6
+2022-09-12 01:19:46,776 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: defer
+2022-09-12 01:19:46,776 INFO    HandlerThread:53143 [handler.py:handle_request_defer():161] handle defer: 6
+2022-09-12 01:19:46,776 DEBUG   SenderThread:53143 [sender.py:send_request():315] send_request: defer
+2022-09-12 01:19:46,776 INFO    SenderThread:53143 [sender.py:send_request_defer():454] handle sender defer: 6
+2022-09-12 01:19:46,865 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: poll_exit
+2022-09-12 01:19:46,914 INFO    SenderThread:53143 [sender.py:transition_state():458] send defer: 7
+2022-09-12 01:19:46,915 DEBUG   SenderThread:53143 [sender.py:send_request():315] send_request: poll_exit
+2022-09-12 01:19:46,916 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: defer
+2022-09-12 01:19:46,916 INFO    HandlerThread:53143 [handler.py:handle_request_defer():161] handle defer: 7
+2022-09-12 01:19:46,916 DEBUG   SenderThread:53143 [sender.py:send_request():315] send_request: defer
+2022-09-12 01:19:46,916 INFO    SenderThread:53143 [sender.py:send_request_defer():454] handle sender defer: 7
+2022-09-12 01:19:46,917 INFO    SenderThread:53143 [dir_watcher.py:finish():362] shutting down directory watcher
+2022-09-12 01:19:47,021 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: poll_exit
+2022-09-12 01:19:47,340 INFO    SenderThread:53143 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json
+2022-09-12 01:19:47,340 INFO    SenderThread:53143 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/config.yaml
+2022-09-12 01:19:47,340 INFO    SenderThread:53143 [dir_watcher.py:finish():392] scan: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files
+2022-09-12 01:19:47,341 INFO    SenderThread:53143 [dir_watcher.py:finish():406] scan save: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/requirements.txt requirements.txt
+2022-09-12 01:19:47,341 INFO    SenderThread:53143 [dir_watcher.py:finish():406] scan save: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/output.log output.log
+2022-09-12 01:19:47,343 INFO    SenderThread:53143 [dir_watcher.py:finish():406] scan save: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/config.yaml config.yaml
+2022-09-12 01:19:47,344 INFO    SenderThread:53143 [dir_watcher.py:finish():406] scan save: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json wandb-summary.json
+2022-09-12 01:19:47,344 INFO    SenderThread:53143 [dir_watcher.py:finish():406] scan save: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-metadata.json wandb-metadata.json
+2022-09-12 01:19:47,345 INFO    SenderThread:53143 [sender.py:transition_state():458] send defer: 8
+2022-09-12 01:19:47,345 DEBUG   SenderThread:53143 [sender.py:send_request():315] send_request: poll_exit
+2022-09-12 01:19:47,350 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: defer
+2022-09-12 01:19:47,350 INFO    HandlerThread:53143 [handler.py:handle_request_defer():161] handle defer: 8
+2022-09-12 01:19:47,351 DEBUG   SenderThread:53143 [sender.py:send_request():315] send_request: defer
+2022-09-12 01:19:47,351 INFO    SenderThread:53143 [sender.py:send_request_defer():454] handle sender defer: 8
+2022-09-12 01:19:47,351 INFO    SenderThread:53143 [file_pusher.py:finish():168] shutting down file pusher
+2022-09-12 01:19:47,454 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: poll_exit
+2022-09-12 01:19:47,455 DEBUG   SenderThread:53143 [sender.py:send_request():315] send_request: poll_exit
+2022-09-12 01:19:47,557 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: poll_exit
+2022-09-12 01:19:47,557 DEBUG   SenderThread:53143 [sender.py:send_request():315] send_request: poll_exit
+2022-09-12 01:19:47,658 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: poll_exit
+2022-09-12 01:19:47,658 DEBUG   SenderThread:53143 [sender.py:send_request():315] send_request: poll_exit
+2022-09-12 01:19:47,705 INFO    Thread-18 :53143 [upload_job.py:push():139] Uploaded file /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/requirements.txt
+2022-09-12 01:19:47,708 INFO    Thread-19 :53143 [upload_job.py:push():139] Uploaded file /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/config.yaml
+2022-09-12 01:19:47,713 INFO    Thread-20 :53143 [upload_job.py:push():139] Uploaded file /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/files/wandb-summary.json
+2022-09-12 01:19:47,765 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: poll_exit
+2022-09-12 01:19:47,765 DEBUG   SenderThread:53143 [sender.py:send_request():315] send_request: poll_exit
+2022-09-12 01:19:47,868 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: poll_exit
+2022-09-12 01:19:47,868 DEBUG   SenderThread:53143 [sender.py:send_request():315] send_request: poll_exit
+2022-09-12 01:19:47,916 INFO    Thread-12 (_thread_body):53143 [sender.py:transition_state():458] send defer: 9
+2022-09-12 01:19:47,916 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: defer
+2022-09-12 01:19:47,916 INFO    HandlerThread:53143 [handler.py:handle_request_defer():161] handle defer: 9
+2022-09-12 01:19:47,916 DEBUG   SenderThread:53143 [sender.py:send_request():315] send_request: defer
+2022-09-12 01:19:47,916 INFO    SenderThread:53143 [sender.py:send_request_defer():454] handle sender defer: 9
+2022-09-12 01:19:47,971 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: poll_exit
+2022-09-12 01:19:48,208 INFO    SenderThread:53143 [sender.py:transition_state():458] send defer: 10
+2022-09-12 01:19:48,208 DEBUG   SenderThread:53143 [sender.py:send_request():315] send_request: poll_exit
+2022-09-12 01:19:48,209 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: defer
+2022-09-12 01:19:48,209 INFO    HandlerThread:53143 [handler.py:handle_request_defer():161] handle defer: 10
+2022-09-12 01:19:48,209 DEBUG   SenderThread:53143 [sender.py:send_request():315] send_request: defer
+2022-09-12 01:19:48,209 INFO    SenderThread:53143 [sender.py:send_request_defer():454] handle sender defer: 10
+2022-09-12 01:19:48,210 INFO    SenderThread:53143 [sender.py:transition_state():458] send defer: 11
+2022-09-12 01:19:48,210 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: defer
+2022-09-12 01:19:48,210 DEBUG   SenderThread:53143 [sender.py:send():301] send: final
+2022-09-12 01:19:48,210 INFO    HandlerThread:53143 [handler.py:handle_request_defer():161] handle defer: 11
+2022-09-12 01:19:48,210 DEBUG   SenderThread:53143 [sender.py:send():301] send: footer
+2022-09-12 01:19:48,211 DEBUG   SenderThread:53143 [sender.py:send_request():315] send_request: defer
+2022-09-12 01:19:48,211 INFO    SenderThread:53143 [sender.py:send_request_defer():454] handle sender defer: 11
+2022-09-12 01:19:48,314 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: poll_exit
+2022-09-12 01:19:48,315 DEBUG   SenderThread:53143 [sender.py:send_request():315] send_request: poll_exit
+2022-09-12 01:19:48,315 INFO    SenderThread:53143 [file_pusher.py:join():173] waiting for file pusher
+2022-09-12 01:19:48,596 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: sampled_history
+2022-09-12 01:19:48,598 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: get_summary
+2022-09-12 01:19:48,599 INFO    MainThread:53143 [wandb_run.py:_footer_history_summary_info():3321] rendering history
+2022-09-12 01:19:48,600 INFO    MainThread:53143 [wandb_run.py:_footer_history_summary_info():3353] rendering summary
+2022-09-12 01:19:48,600 INFO    MainThread:53143 [wandb_run.py:_footer_sync_info():3277] logging synced files
+2022-09-12 01:19:48,601 DEBUG   HandlerThread:53143 [handler.py:handle_request():138] handle_request: shutdown
+2022-09-12 01:19:48,601 INFO    HandlerThread:53143 [handler.py:finish():807] shutting down handler
+2022-09-12 01:19:49,214 INFO    WriterThread:53143 [datastore.py:close():279] close: /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_011915-1xx4fg4h/run-1xx4fg4h.wandb
+2022-09-12 01:19:49,493 INFO    SenderThread:53143 [sender.py:finish():1315] shutting down sender
+2022-09-12 01:19:49,494 INFO    SenderThread:53143 [file_pusher.py:finish():168] shutting down file pusher
+2022-09-12 01:19:49,494 INFO    SenderThread:53143 [file_pusher.py:join():173] waiting for file pusher
+2022-09-12 01:19:49,774 INFO    MainThread:53143 [internal.py:handle_exit():78] Internal process exited
