@@ -1,10 +1,9 @@
 import numpy as np
 import wandb
 from typing import Any, Dict
-from sklearn.metrics import classification_report
 from collections import defaultdict
 from IPython import embed
-from Features import Features, BOWFeatures
+from Features import BOWFeatures
 from Model import *
 from tqdm import tqdm
 from sklearn.preprocessing import OneHotEncoder
@@ -30,52 +29,6 @@ class LogisticRegression(Model):
         gd = 1/N * (X.T @ (Y - P)) + 2 * mu * W
         return gd
 
-    @classmethod
-    def get_all_words(cls, feature_class: Features):
-        sents_words_counts = feature_class.get_features(
-            feature_class.tokenized_text,
-            None
-        )
-        all_words_counts = defaultdict(int)
-
-        for words_counts in tqdm(sents_words_counts, leave=False):
-            for word, count in words_counts.items():
-                all_words_counts[word] += count
-
-        all_words = set([
-            word
-            for word, count
-            in all_words_counts.items()
-            if count >= 10
-        ])
-
-        return {
-            word: i
-            for i, word
-            in enumerate(all_words)
-        }
-
-    def get_features(self, text, all_words):
-        features = np.zeros(shape=[len(all_words)])
-        for word in set(text):
-            if word in all_words:
-                features[all_words[word]] = 1
-        return features
-
-    def process_features(self, feature_class, all_words, features_means=None, features_stds=None):
-        features = np.array([
-            self.get_features(tokenized_text, all_words)
-            for tokenized_text in tqdm(feature_class.tokenized_text, leave=False)
-        ])  # feature vector with size (#inputs, #vocab)
-
-        if features_means is None:
-            features_means = np.mean(features, axis=0)
-            features_stds = np.std(features, axis=0)
-
-        features = (features - features_means) / features_stds
-
-        return features, features_means, features_stds
-
     def train(self, input_file, **kwargs):
         """
         This method is used to train your models and generated for a given input_file a trained model
@@ -94,16 +47,16 @@ class LogisticRegression(Model):
         with open(kwargs['devlabels'], 'r') as f:
             test_labels = f.read().splitlines()
 
-        all_words = self.get_all_words(
-            feature_class=feature_class
+        all_words = feature_class.get_all_words()
+        features, features_means, features_stds = feature_class.process_features(
+            all_words=all_words,
+            features_means=None,
+            features_stds=None
         )
-        features, features_means, features_stds = self.process_features(
-            feature_class, all_words)
 
         test_feature_class = BOWFeatures(
             data_file=kwargs['dev'], no_labels=True)
-        test_features, _, _ = self.process_features(
-            feature_class=test_feature_class,
+        test_features, _, _ = test_feature_class.process_features(
             all_words=all_words,
             features_means=features_means,
             features_stds=features_stds
@@ -147,6 +100,8 @@ class LogisticRegression(Model):
             'label2index': label2index,
             'all_words': all_words,
             'W': W,
+            'features_means': features_means,
+            'features_stds': features_stds
         }
 
         # Save the model
@@ -164,13 +119,16 @@ class LogisticRegression(Model):
         W = model['W']
         label2index = model['label2index']
         all_words = model['all_words']
+        features_means = model['features_means']
+        features_stds = model['features_stds']
 
         feature_class = BOWFeatures(data_file=input_file, no_labels=True)
 
-        features = np.array([
-            self.get_features(tokenized_text, all_words)
-            for tokenized_text in tqdm(feature_class.tokenized_text, leave=False)
-        ])  # feature vector with size (#inputs, #vocab)
+        features, _, _ = feature_class.process_features(
+            all_words=all_words,
+            features_means=features_means,
+            features_stds=features_stds
+        )
 
         Z = - features @ W
         P = softmax(Z, axis=1)

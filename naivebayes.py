@@ -30,8 +30,7 @@ class NaiveBayes(Model):
     @classmethod
     def get_word_counts_per_class(cls, feature_class: Features):
         sents_words_counts = feature_class.get_features(
-            feature_class.tokenized_text,
-            None
+            feature_class.tokenized_text
         )
         word_counts_per_class = defaultdict(lambda: defaultdict(int))
 
@@ -103,8 +102,7 @@ class NaiveBayes(Model):
 
         feature_class = BOWFeatures(data_file=input_file, no_labels=True)
         sents_words_counts = feature_class.get_features(
-            feature_class.tokenized_text,
-            None
+            feature_class.tokenized_text
         )
 
         preds = []

@@ -1,0 +1,35 @@
+{
+    "os": "macOS-11.6.8-x86_64-i386-64bit",
+    "python": "3.10.6",
+    "heartbeatAt": "2022-09-12T06:23:07.735134",
+    "startedAt": "2022-09-12T06:23:07.366217",
+    "docker": null,
+    "cpu_count": 8,
+    "cuda": null,
+    "args": [
+        "-m",
+        "logistic_regression",
+        "-i",
+        "datasets/custom/odiya.train.txt.train",
+        "-o",
+        "lr.odiya.model",
+        "--dev",
+        "datasets/custom/odiya.train.txt.test",
+        "--devlabels",
+        "datasets/custom/odiya.train.txt.true",
+        "--epochs",
+        "40"
+    ],
+    "state": "running",
+    "program": "/Users/div22loaner/Documents/Advanced_NLP_662/HW1/train.py",
+    "codePath": "train.py",
+    "git": {
+        "remote": "git@github.com:zhpinkman/Advanced_NLP_course_HW1.git",
+        "commit": "13b6258da9143bc2e24417c488f25dd92c4f06d0"
+    },
+    "email": null,
+    "root": "/Users/div22loaner/Documents/Advanced_NLP_662/HW1",
+    "host": "D22ML-LOANER3.local",
+    "username": "div22loaner",
+    "executable": "/usr/local/opt/python@3.10/bin/python3.10"
+}
