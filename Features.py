@@ -1,4 +1,4 @@
-""" 
+"""
     Basic feature extractor
 """
 from collections import Counter, defaultdict
@@ -51,13 +51,19 @@ class Features:
 
 class BOWFeatures(Features):
 
-    def __init__(self, data_file, no_labels=False, ngrams=(1, 2), all_words=None, features_means=None, features_stds=None):
+    def __init__(self, data_file, no_labels=False, ngrams=(1, 2), feature_class=None):
         super().__init__(data_file=data_file, no_labels=no_labels)
         self.ngrams = ngrams
         self.sents_words_counts = self.get_sents_words_counts()
-        self.all_words = all_words
-        self.features_means = features_means
-        self.features_stds = features_stds
+        if feature_class is None:
+            self.all_words = None
+            self.features_means = None
+            self.features_stds = None
+        else:
+            self.all_words = feature_class.all_words
+            self.features_means = feature_class.features_means
+            self.features_stds = feature_class.features_stds
+            self.ngrams = feature_class.ngrams
 
     def get_all_words(self):
         all_words_counts = defaultdict(int)
@@ -83,7 +89,7 @@ class BOWFeatures(Features):
         features = np.zeros(shape=[len(all_words)])
         for i in range(self.ngrams[0], self.ngrams[1] + 1):
             for j in range(len(text) - i + 1):
-                ngram = tuple(text[j:j + i])
+                ngram = tuple(text[j: j + i])
                 if ngram in all_words:
                     features[all_words[ngram]] = 1
         return features
@@ -110,12 +116,27 @@ class BOWFeatures(Features):
             words_counts = defaultdict(int)
             for i in range(self.ngrams[0], self.ngrams[1] + 1):
                 for j in range(len(sent_tokenized) - i + 1):
-                    ngram = tuple(sent_tokenized[j:j+i])
+                    ngram = tuple(sent_tokenized[j: j+i])
                     words_counts[ngram] += 1
             sents_words_counts.append(
                 words_counts
             )
         return sents_words_counts
+
+
+class BOWWeightedFeatures(BOWFeatures):
+    def __init__(self, data_file, no_labels=False, ngrams=(1, 2), feature_class=None):
+        super().__init__(data_file=data_file, no_labels=no_labels,
+                         ngrams=ngrams, feature_class=feature_class)
+        self.word_happiness_scores = self.get_word_happiness_scores()
+
+    def get_word_happiness_scores(self):
+        df = pd.read_csv('Hedonometer.csv')
+        words = df['Word in English'].tolist()
+        words.append('OOV')
+        scores = df['Happiness Score'].tolist()
+        scores.append(5)
+        return dict(zip(words, scores))
 
 
 class BertFeatures(Features):
@@ -126,25 +147,28 @@ class BertFeatures(Features):
     def get_features(self, tokenized):
         sentences = [' '.join(words) for words in tokenized]
         embeddings = [self.model.encode(sentence)
-                      for sentence in tqdm(sentences[:100], leave=False)]
+                      for sentence in tqdm(sentences[: 100], leave=False)]
         return embeddings
 
 
 class TF_IDF_Features(Features):
-    def __init__(self, data_file, no_labels=False):
+    def __init__(self, data_file, no_labels=False, feature_class=None):
         super().__init__(data_file, no_labels)
-        corpus = [' '.join(words) for words in self.tokenized_text]
-        self.vectorizer = TfidfVectorizer(
-            lowercase=True,
-            ngram_range=(1, 3),
-            stop_words=None,
-            max_df=0.98,
-            min_df=10
-        )
-        self.vectorizer.fit(corpus)
+        if feature_class is None:
+            corpus = [' '.join(words) for words in self.tokenized_text]
+            self.vectorizer = TfidfVectorizer(
+                lowercase=True,
+                ngram_range=(1, 3),
+                stop_words=None,
+                max_df=0.98,
+                min_df=10
+            )
+            self.vectorizer.fit(corpus)
+        else:
+            self.vectorizer = feature_class.vectorizer
 
-    def get_features(self, tokenized_sentences):
-        sentences = [' '.join(words) for words in tokenized_sentences]
+    def process_features(self):
+        sentences = [' '.join(words) for words in self.tokenized_text]
         X = self.vectorizer.transform(sentences)
         return X
 

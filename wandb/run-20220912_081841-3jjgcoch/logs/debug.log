@@ -1,0 +1,25 @@
+2022-09-12 08:18:41,440 INFO    MainThread:57028 [wandb_setup.py:_flush():68] Configure stats pid to 57028
+2022-09-12 08:18:41,440 INFO    MainThread:57028 [wandb_setup.py:_flush():68] Loading settings from /Users/div22loaner/.config/wandb/settings
+2022-09-12 08:18:41,440 INFO    MainThread:57028 [wandb_setup.py:_flush():68] Loading settings from /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/settings
+2022-09-12 08:18:41,440 INFO    MainThread:57028 [wandb_setup.py:_flush():68] Loading settings from environment variables: {'_require_service': 'True'}
+2022-09-12 08:18:41,440 INFO    MainThread:57028 [wandb_setup.py:_flush():68] Inferring run settings from compute environment: {'program_relpath': 'train.py', 'program': '/Users/div22loaner/Documents/Advanced_NLP_662/HW1/train.py'}
+2022-09-12 08:18:41,440 INFO    MainThread:57028 [wandb_init.py:_log_setup():476] Logging user logs to /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_081841-3jjgcoch/logs/debug.log
+2022-09-12 08:18:41,440 INFO    MainThread:57028 [wandb_init.py:_log_setup():477] Logging internal logs to /Users/div22loaner/Documents/Advanced_NLP_662/HW1/wandb/run-20220912_081841-3jjgcoch/logs/debug-internal.log
+2022-09-12 08:18:41,440 INFO    MainThread:57028 [wandb_init.py:init():516] calling init triggers
+2022-09-12 08:18:41,440 INFO    MainThread:57028 [wandb_init.py:init():519] wandb.init called with sweep_config: {}
+config: {}
+2022-09-12 08:18:41,440 INFO    MainThread:57028 [wandb_init.py:init():569] starting backend
+2022-09-12 08:18:41,441 INFO    MainThread:57028 [wandb_init.py:init():573] setting up manager
+2022-09-12 08:18:41,447 INFO    MainThread:57028 [backend.py:_multiprocessing_setup():102] multiprocessing start_methods=spawn,fork,forkserver, using: spawn
+2022-09-12 08:18:41,454 INFO    MainThread:57028 [wandb_init.py:init():580] backend started and connected
+2022-09-12 08:18:41,461 INFO    MainThread:57028 [wandb_init.py:init():658] updated telemetry
+2022-09-12 08:18:41,500 INFO    MainThread:57028 [wandb_init.py:init():692] communicating run to backend with 30 second timeout
+2022-09-12 08:18:41,719 INFO    MainThread:57028 [wandb_run.py:_on_init():1974] communicating current version
+2022-09-12 08:18:41,765 INFO    MainThread:57028 [wandb_run.py:_on_init():1978] got version response 
+2022-09-12 08:18:41,765 INFO    MainThread:57028 [wandb_init.py:init():727] starting run threads in backend
+2022-09-12 08:18:41,869 INFO    MainThread:57028 [wandb_run.py:_console_start():1954] atexit reg
+2022-09-12 08:18:41,869 INFO    MainThread:57028 [wandb_run.py:_redirect():1812] redirect: SettingsConsole.WRAP_RAW
+2022-09-12 08:18:41,869 INFO    MainThread:57028 [wandb_run.py:_redirect():1877] Wrapping output streams.
+2022-09-12 08:18:41,869 INFO    MainThread:57028 [wandb_run.py:_redirect():1899] Redirects installed.
+2022-09-12 08:18:41,870 INFO    MainThread:57028 [wandb_init.py:init():764] run started, returning control to user process
+2022-09-12 08:21:03,585 WARNING MsgRouterThr:57028 [router.py:message_loop():77] message_loop has been closed

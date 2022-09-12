@@ -5,7 +5,7 @@ import wandb
 from typing import Any, Dict
 from collections import defaultdict
 from IPython import embed
-from Features import Features, BOWFeatures
+from Features import BOWFeatures, TF_IDF_Features
 from Model import *
 from tqdm import tqdm
 import numpy as np
@@ -28,13 +28,16 @@ class Perceptron(Model):
         :return: model: trained model
         """
 
-        wandb.init(project=f"Perceptron Normalized Features BOW - ngram {kwargs['ngram']} - dataset {input_file.replace('/', '')}",
+        wandb.init(project=f"Perceptron Normalized Features BOW - ngram {kwargs['ngram']} - dataset {input_file.replace('/', '')} - comment {kwargs['wandb']}",
                    entity="zhpinkman")
 
-        feature_class = BOWFeatures(
-            data_file=input_file,
-            ngrams=(1, kwargs['ngram'])
-        )
+        if kwargs['features'] == "bow":
+            feature_class = BOWFeatures(
+                data_file=input_file,
+                ngrams=(1, kwargs['ngram'])
+            )
+        elif kwargs['features'] == 'tfidf':
+            feature_class = TF_IDF_Features(data_file=input_file)
 
         train_labels = feature_class.labels
         with open(kwargs['devlabels'], 'r') as f:
@@ -42,14 +45,18 @@ class Perceptron(Model):
 
         features = feature_class.process_features()
 
-        test_feature_class = BOWFeatures(
-            data_file=kwargs['dev'],
-            no_labels=True,
-            ngrams=(1, kwargs['ngram']),
-            all_words=feature_class.all_words,
-            features_means=feature_class.features_means,
-            features_stds=feature_class.features_stds
-        )
+        if kwargs['features'] == "bow":
+            test_feature_class = BOWFeatures(
+                data_file=kwargs['dev'],
+                no_labels=True,
+                feature_class=feature_class
+            )
+        elif kwargs['features'] == "tfidf":
+            test_feature_class = TF_IDF_Features(
+                data_file=kwargs['dev'],
+                no_labels=True,
+                feature_class=feature_class
+            )
 
         test_features = test_feature_class.process_features()
 
@@ -111,6 +118,15 @@ class Perceptron(Model):
             # epoch) + f"{train_weighted_f1 * 100:.2e}" + " | Valid w-f1: " + f"{test_weighted_f1 * 100:.2e}")
         print('-----')
 
+        if kwargs['features'] == "bow":
+            feature_class.sents_words_counts = None
+            feature_class.tokenized_text = None
+        model = {
+            'label2index': label2index,
+            'W': W,
+            'feature_class': feature_class
+        }
+
         # Save the model
         self.save_model(model)
         return model
@@ -125,17 +141,21 @@ class Perceptron(Model):
         """
         W = model['W']
         label2index = model['label2index']
-        feature_class: BOWFeatures = model['feature_class']
+        feature_class = model['feature_class']
 
         if features is None:
-            test_feature_class = BOWFeatures(
-                data_file=input_file,
-                no_labels=True,
-                ngrams=feature_class.ngrams,
-                all_words=feature_class.all_words,
-                features_means=feature_class.features_means,
-                features_stds=feature_class.features_stds
-            )
+            if type(feature_class).__name__ == "BOWFeatures":
+                test_feature_class = BOWFeatures(
+                    data_file=input_file,
+                    no_labels=True,
+                    feature_class=feature_class
+                )
+            elif type(feature_class).__name__ == "TF_IDF_Features":
+                test_feature_class = TF_IDF_Features(
+                    data_file=input_file,
+                    no_labels=True,
+                    feature_class=feature_class
+                )
 
             features = test_feature_class.process_features()
 

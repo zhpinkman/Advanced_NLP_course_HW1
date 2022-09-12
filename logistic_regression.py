@@ -3,7 +3,7 @@ import wandb
 from typing import Any, Dict
 from collections import defaultdict
 from IPython import embed
-from Features import BOWFeatures
+from Features import BOWFeatures, TF_IDF_Features
 from Model import *
 from tqdm import tqdm
 from sklearn.preprocessing import OneHotEncoder
@@ -33,18 +33,21 @@ class LogisticRegression(Model):
         """
         This method is used to train your models and generated for a given input_file a trained model
         :param input_file: path to training file with a text and a label per each line
-        :return: model: trained model 
+        :return: model: trained model
         """
 
         onehot_encoder = OneHotEncoder(sparse=False)
 
-        wandb.init(project=f"Logistic Regression Normalized Features BOW - ngram {kwargs['ngram']} - dataset {input_file.replace('/', '')}",
+        wandb.init(project=f"Logistic Regression Normalized Features BOW - ngram {kwargs['ngram']} - dataset {input_file.replace('/', '')}- comment {kwargs['wandb']}",
                    entity="zhpinkman")
 
-        feature_class = BOWFeatures(
-            data_file=input_file,
-            ngrams=(1, kwargs['ngram'])
-        )
+        if kwargs['features'] == "bow":
+            feature_class = BOWFeatures(
+                data_file=input_file,
+                ngrams=(1, kwargs['ngram'])
+            )
+        elif kwargs['features'] == 'tfidf':
+            feature_class = TF_IDF_Features(data_file=input_file)
 
         train_labels = feature_class.labels
         with open(kwargs['devlabels'], 'r') as f:
@@ -52,14 +55,18 @@ class LogisticRegression(Model):
 
         features = feature_class.process_features()
 
-        test_feature_class = BOWFeatures(
-            data_file=kwargs['dev'],
-            no_labels=True,
-            ngrams=(1, kwargs['ngram']),
-            all_words=feature_class.all_words,
-            features_means=feature_class.features_means,
-            features_stds=feature_class.features_stds
-        )
+        if kwargs['features'] == "bow":
+            test_feature_class = BOWFeatures(
+                data_file=kwargs['dev'],
+                no_labels=True,
+                feature_class=feature_class
+            )
+        elif kwargs['features'] == "tfidf":
+            test_feature_class = TF_IDF_Features(
+                data_file=kwargs['dev'],
+                no_labels=True,
+                feature_class=feature_class
+            )
         test_features = test_feature_class.process_features()
 
         classes = feature_class.labelset
@@ -96,6 +103,10 @@ class LogisticRegression(Model):
                 'test_loss': epoch_test_loss
             }, step=step)
 
+        if kwargs['features'] == "bow":
+            feature_class.sents_words_counts = None
+            feature_class.tokenized_text = None
+
         model = {
             'label2index': label2index,
             'W': W,
@@ -108,7 +119,7 @@ class LogisticRegression(Model):
 
     def classify(self, input_file, model):
         """
-        This method will be called by us for the validation stage and or you can call it for evaluating your code 
+        This method will be called by us for the validation stage and or you can call it for evaluating your code
         on your own splits on top of the training sets seen to you
         :param input_file: path to input file with a text per line without labels
         :param model: the pretrained model
@@ -116,16 +127,20 @@ class LogisticRegression(Model):
         """
         W = model['W']
         label2index = model['label2index']
-        feature_class: BOWFeatures = model['feature_class']
+        feature_class = model['feature_class']
 
-        test_feature_class = BOWFeatures(
-            data_file=input_file,
-            no_labels=True,
-            ngrams=feature_class.ngrams,
-            all_words=feature_class.all_words,
-            features_means=feature_class.features_means,
-            features_stds=feature_class.features_stds
-        )
+        if type(feature_class).__name__ == "BOWFeatures":
+            test_feature_class = BOWFeatures(
+                data_file=input_file,
+                no_labels=True,
+                feature_class=feature_class
+            )
+        elif type(feature_class).__name__ == "TF_IDF_Features":
+            test_feature_class = TF_IDF_Features(
+                data_file=input_file,
+                no_labels=True,
+                feature_class=feature_class
+            )
 
         features = test_feature_class.process_features()
 

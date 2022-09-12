@@ -12,13 +12,13 @@ from tqdm import tqdm
 import numpy as np
 from IPython import embed
 from Model import *
-from Features import BOWFeatures
+from Features import BOWFeatures, BOWWeightedFeatures
 from collections import defaultdict
 
 
 class NaiveBayes(Model):
 
-    def get_class_probs(self, feature_class: BOWFeatures):
+    def get_class_probs(self, feature_class):
         labels = feature_class.labels
         class_probs = {
             label: len(np.where(np.array(labels) == label)[0])
@@ -26,7 +26,7 @@ class NaiveBayes(Model):
         }
         return class_probs
 
-    def get_word_counts_per_class(self, feature_class: BOWFeatures):
+    def get_word_counts_per_class(self, feature_class):
         word_counts_per_class = defaultdict(lambda: defaultdict(int))
 
         for words_counts, label in tqdm(zip(feature_class.sents_words_counts, feature_class.labels), leave=False):
@@ -46,8 +46,11 @@ class NaiveBayes(Model):
         :param input_file: path to training file with a text and a label per each line
         :return: model: trained model
         """
+
         feature_class = BOWFeatures(
-            data_file=input_file, ngrams=(1, kwargs['ngram']))
+            data_file=input_file, ngrams=(1, kwargs['ngram'])
+        )
+
         word_counts_per_class, word_counts_total_per_class = self.get_word_counts_per_class(
             feature_class=feature_class
         )
@@ -77,7 +80,8 @@ class NaiveBayes(Model):
             "class_probs": self.get_class_probs(feature_class=feature_class),
             "word_counts_total_per_class": word_counts_total_per_class,
             "all_classes_vocab": all_classes_vocab,
-            "ngram": kwargs['ngram']
+            "ngram": kwargs['ngram'],
+            "feature_type": kwargs['features']
         }
         # Save the model
         self.save_model(model)
@@ -98,11 +102,18 @@ class NaiveBayes(Model):
         all_classes_vocab = model['all_classes_vocab']
         ngram = model['ngram']
 
-        feature_class = BOWFeatures(
-            data_file=input_file,
-            no_labels=True,
-            ngrams=(1, ngram)
-        )
+        if model['feature_type'] == "bow":
+            feature_class = BOWFeatures(
+                data_file=input_file,
+                no_labels=True,
+                ngrams=(1, ngram)
+            )
+        elif model['feature_type'] == "wbow":
+            feature_class = BOWWeightedFeatures(
+                data_file=input_file,
+                no_labels=True,
+                ngrams=(1, ngram)
+            )
 
         preds = []
 
@@ -114,12 +125,19 @@ class NaiveBayes(Model):
 
             for word, count in words_counts.items():
                 for label in classes:
+                    if model['feature_type'] == "wbow":
+                        if len(word) == 1 and word[0] in feature_class.word_happiness_scores:
+                            weight = feature_class.word_happiness_scores[word[0]]
+                        else:
+                            weight = feature_class.word_happiness_scores['OOV']
+                    else:
+                        weight = count
                     if word in word_probs_per_class[label].keys():
-                        result_probs[label] += count * math.log(
+                        result_probs[label] += weight * math.log(
                             word_probs_per_class[label][word]
                         )
                     else:
-                        result_probs[label] += count * math.log(
+                        result_probs[label] += weight * math.log(
                             1 / (word_counts_total_per_class[label] +
                                  len(all_classes_vocab))
                         )

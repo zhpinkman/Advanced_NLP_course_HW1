@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/div22loaner/Documents/Advanced_NLP_662/HW1/train.py", line 48, in <module>
+    model = model.train(args.i, **vars(args))
+  File "/Users/div22loaner/Documents/Advanced_NLP_662/HW1/perceptron.py", line 90, in train
+    train_predictions = self.classify(
+  File "/Users/div22loaner/Documents/Advanced_NLP_662/HW1/perceptron.py", line 164, in classify
+    z = self.forward(W=W, x=features[i, :])
+  File "/Users/div22loaner/Documents/Advanced_NLP_662/HW1/perceptron.py", line 21, in forward
+    z = W[:, 0] + np.dot(W[:, 1:], x.T)
+  File "<__array_function__ internals>", line 180, in dot
+KeyboardInterrupt

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/div22loaner/Documents/Advanced_NLP_662/HW1/train.py", line 45, in <module>
+    model = model.train(args.i, **vars(args))
+  File "/Users/div22loaner/Documents/Advanced_NLP_662/HW1/logistic_regression.py", line 44, in train
+    feature_class = BOWFeatures(
+  File "/Users/div22loaner/Documents/Advanced_NLP_662/HW1/Features.py", line 63, in __init__
+    self.all_words = feature_class.all_words
+AttributeError: 'NoneType' object has no attribute 'all_words'
