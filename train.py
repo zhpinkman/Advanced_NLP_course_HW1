@@ -29,6 +29,11 @@ def get_arguments():
     parser.add_argument(
         '--wandb', help="Wandb name when logging", default="normal", type=str
     )
+
+    parser.add_argument(
+        '--decrypt', help="whether to decrypt the content of the dataset or not",
+        action=argparse.BooleanOptionalAction
+    )
     # Respect the naming convention for the model: make sure to name it {nb, perceptron}.{4dim, authors, odiya, products}.model for your best models in your workplace otherwise the grading script will fail
     parser.add_argument("-o", help="path of the file where the model is saved")
 

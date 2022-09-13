@@ -79,7 +79,7 @@ class NaiveBayes(Model):
             "classes": feature_class.labelset,
             "class_probs": self.get_class_probs(feature_class=feature_class),
             "word_counts_total_per_class": word_counts_total_per_class,
-            "all_classes_vocab": all_classes_vocab,
+            "len_all_classes_vocab": len(all_classes_vocab),
             "ngram": kwargs['ngram'],
             "feature_type": kwargs['features']
         }
@@ -99,7 +99,7 @@ class NaiveBayes(Model):
         classes = model['classes']
         class_probs = model['class_probs']
         word_counts_total_per_class = model['word_counts_total_per_class']
-        all_classes_vocab = model['all_classes_vocab']
+        len_all_classes_vocab = model['len_all_classes_vocab']
         ngram = model['ngram']
 
         if model['feature_type'] == "bow":
@@ -139,7 +139,7 @@ class NaiveBayes(Model):
                     else:
                         result_probs[label] += weight * math.log(
                             1 / (word_counts_total_per_class[label] +
-                                 len(all_classes_vocab))
+                                 len_all_classes_vocab)
                         )
             predicted_label = list(result_probs.keys())[
                 np.argmax(list(result_probs.values()))

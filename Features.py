@@ -5,13 +5,13 @@ from collections import Counter, defaultdict
 from operator import methodcaller
 import string
 from consts import STOP_WORDS
+import gensim
 import pandas as pd
 from tqdm import tqdm
 import numpy as np
 from IPython import embed
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sentence_transformers import SentenceTransformer
-model = SentenceTransformer('all-MiniLM-L6-v2')
+from utils import decrypt_text
 
 
 def tokenize(text: str):
@@ -24,16 +24,10 @@ def tokenize(text: str):
 
     return words
 
-# TODO: happy words,
-# TODO: prefixes
-# TODO: negative words
-# TODO: checkout the paper on thumbs up for the template on the report
-# TODO: for the Odyia dataset take into account the word
-# TODO: Check the weighted naive bayes model
-
 
 class Features:
-    def __init__(self, data_file, no_labels=False):
+    def __init__(self, data_file, no_labels=False, decrypt=False):
+        self.decrypt = decrypt
         with open(data_file) as file:
             data = file.read().splitlines()
 
@@ -46,13 +40,17 @@ class Features:
             texts, self.labels = map(list, zip(*data_split))
             self.labelset = list(set(self.labels))
 
-        self.tokenized_text = [tokenize(text) for text in texts]
+        if self.decrypt:
+            self.tokenized_text = [
+                tokenize(decrypt_text(text)) for text in texts]
+        else:
+            self.tokenized_text = [tokenize(text) for text in texts]
 
 
 class BOWFeatures(Features):
 
-    def __init__(self, data_file, no_labels=False, ngrams=(1, 2), feature_class=None):
-        super().__init__(data_file=data_file, no_labels=no_labels)
+    def __init__(self, data_file, no_labels=False, ngrams=(1, 2), feature_class=None, decrypt=False):
+        super().__init__(data_file=data_file, no_labels=no_labels, decrypt=decrypt)
         self.ngrams = ngrams
         self.sents_words_counts = self.get_sents_words_counts()
         if feature_class is None:
@@ -125,9 +123,9 @@ class BOWFeatures(Features):
 
 
 class BOWWeightedFeatures(BOWFeatures):
-    def __init__(self, data_file, no_labels=False, ngrams=(1, 2), feature_class=None):
+    def __init__(self, data_file, no_labels=False, ngrams=(1, 2), feature_class=None, decrypt=False):
         super().__init__(data_file=data_file, no_labels=no_labels,
-                         ngrams=ngrams, feature_class=feature_class)
+                         ngrams=ngrams, feature_class=feature_class, decrypt=decrypt)
         self.word_happiness_scores = self.get_word_happiness_scores()
 
     def get_word_happiness_scores(self):
@@ -139,21 +137,35 @@ class BOWWeightedFeatures(BOWFeatures):
         return dict(zip(words, scores))
 
 
-class BertFeatures(Features):
-    def __init__(self, data_file, no_labels):
-        super().__init__(data_file=data_file, no_labels=no_labels)
-        self.model = SentenceTransformer('all-MiniLM-L6-v2')
+class Word2VecFeatures(Features):
 
-    def get_features(self, tokenized):
-        sentences = [' '.join(words) for words in tokenized]
-        embeddings = [self.model.encode(sentence)
-                      for sentence in tqdm(sentences[: 100], leave=False)]
-        return embeddings
+    model = None
+
+    def __init__(self, data_file, no_labels=False, decrypt=False):
+        super().__init__(data_file=data_file, no_labels=no_labels, decrypt=decrypt)
+        if self.model is None:
+            self.model = gensim.models.KeyedVectors.load_word2vec_format(
+                "GoogleNews-vectors-negative300.bin.gz", binary=True)
+
+    def process_features(self):
+        embeddings = []
+        for words in tqdm(self.tokenized_text, leave=False):
+            word_embeddings = []
+            for word in words:
+                if word in self.model:
+                    word_embeddings.append(self.model[word])
+            if len(word_embeddings) == 0:
+                embeddings.append(np.zeros(shape=(1, 300)))
+            else:
+                embeddings.append(
+                    np.mean(np.array(word_embeddings), axis=0).reshape(1, -1)
+                )
+        return np.array(embeddings).squeeze(axis=1)
 
 
 class TF_IDF_Features(Features):
-    def __init__(self, data_file, no_labels=False, feature_class=None):
-        super().__init__(data_file, no_labels)
+    def __init__(self, data_file, no_labels=False, feature_class=None, decrypt=False):
+        super().__init__(data_file, no_labels, decrypt=decrypt)
         if feature_class is None:
             corpus = [' '.join(words) for words in self.tokenized_text]
             self.vectorizer = TfidfVectorizer(
@@ -170,14 +182,14 @@ class TF_IDF_Features(Features):
     def process_features(self):
         sentences = [' '.join(words) for words in self.tokenized_text]
         X = self.vectorizer.transform(sentences)
-        return X
+        return X.toarray()
 
 
 if __name__ == "__main__":
-    pass
-    # feature_class = BertFeatures(
-    #     data_file='datasets/custom/products.train.txt.train',
-    #     no_labels=False
-    # )
-    # embeddings = feature_class.get_features(feature_class.tokenized_text)
-    # embed()
+    feature_class = Word2VecFeatures(
+        data_file='datasets/custom/products.train.txt.train',
+        no_labels=False
+    )
+    embeddings = feature_class.process_features()
+    embed()
+    quit()

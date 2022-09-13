@@ -2,7 +2,8 @@ import string
 
 alphabet = string.ascii_lowercase
 
-def decrypt(encrypted_message, key):    
+
+def decrypt_text(encrypted_message, key=13):
     decrypted_message = ""
 
     for c in encrypted_message:
@@ -18,3 +19,7 @@ def decrypt(encrypted_message, key):
     words = decrypted_message.split()
     words = [word[::-1] for word in words]
     return ' '.join(words)
+
+
+if __name__ == "__main__":
+    pass
