@@ -4,6 +4,32 @@ import os
 
 from sklearn.model_selection import train_test_split
 
+import string
+
+alphabet = string.ascii_lowercase
+
+
+def decrypt_text(encrypted_message, key=13):
+    decrypted_message = ""
+
+    for c in encrypted_message:
+
+        if c in alphabet:
+            position = alphabet.find(c)
+            new_position = (position - key) % 26
+            new_character = alphabet[new_position]
+            decrypted_message += new_character
+        else:
+            decrypted_message += c
+
+    words = decrypted_message.split()
+    words = [word[::-1] for word in words]
+    return ' '.join(words)
+
+
+if __name__ == "__main__":
+    pass
+
 
 def read_file(data_file: str):
 
@@ -15,7 +41,37 @@ def read_file(data_file: str):
     return texts, labels
 
 
+def decrypt_questions_dataset_splits():
+    with open('custom/questions.train.txt.train', 'r') as f:
+        lines = f.read().splitlines()
+
+    texts = []
+    labels = []
+    for line in lines:
+        text, label = line.split('\t')
+        texts.append(decrypt_text(text))
+        labels.append(label)
+
+    with open('custom/questions.train.txt.train', 'w') as f:
+        for text, label in zip(texts, labels):
+            f.write(f"{text}\t{label}\n")
+
+    with open('custom/questions.train.txt.test', 'r') as f:
+        texts = f.read().splitlines()
+
+    texts = [decrypt_text(text) for text in texts]
+
+    with open('custom/questions.train.txt.test', 'w') as f:
+        for text in texts:
+            f.write(f"{text}\n")
+
+
 if __name__ == "__main__":
+    """
+    Split each dataset into 80 / 20 splits for train and validation to check the performance of the models on
+    and save them in train, test, true extension endings files.  
+    """
+
     datasets = [file for file in os.listdir('.') if file.endswith('.txt')]
 
     for dataset in datasets:

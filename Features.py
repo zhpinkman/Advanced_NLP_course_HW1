@@ -4,6 +4,7 @@
 from collections import Counter, defaultdict
 from operator import methodcaller
 import string
+from typing import Dict, List
 from consts import STOP_WORDS
 import gensim
 import pandas as pd
@@ -14,7 +15,15 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from utils import decrypt_text
 
 
-def tokenize(text: str):
+def tokenize(text: str) -> List[str]:
+    """Tokenize a text
+
+    Args:
+        text (str): text
+
+    Returns:
+        List[str]: tokenized text
+    """
     text = text.translate(str.maketrans(' ', ' ', string.punctuation))
 
     text = text.lower()
@@ -26,7 +35,17 @@ def tokenize(text: str):
 
 
 class Features:
+    """Base Features class
+    """
+
     def __init__(self, data_file, no_labels=False, decrypt=False):
+        """Create a new instance of Features and also do the dataset reading part as well as the tokenization part
+
+        Args:
+            data_file (_type_): dataset input file
+            no_labels (bool, optional): whether the dataset contains labels or not. Defaults to False.
+            decrypt (bool, optional): Whether to decrypt the dataset or not. Defaults to False.
+        """
         self.decrypt = decrypt
         with open(data_file) as file:
             data = file.read().splitlines()
@@ -48,8 +67,19 @@ class Features:
 
 
 class BOWFeatures(Features):
+    """Bag of Words Features
+    """
 
     def __init__(self, data_file, no_labels=False, ngrams=(1, 2), feature_class=None, decrypt=False):
+        """_summary_
+
+        Args:
+            data_file (_type_): dataset input file
+            no_labels (bool, optional): whether the dataset contains labels or not. Defaults to False.
+            ngrams (tuple, optional): Defaults to (1, 2).
+            feature_class (_type_, optional): the instance of feature class to use in order to fill in the properties of this instance. Defaults to None.
+            decrypt (bool, optional): Whether to decrypt the dataset or not. Defaults to False.
+        """
         super().__init__(data_file=data_file, no_labels=no_labels, decrypt=decrypt)
         self.ngrams = ngrams
         self.sents_words_counts = self.get_sents_words_counts()
@@ -63,7 +93,13 @@ class BOWFeatures(Features):
             self.features_stds = feature_class.features_stds
             self.ngrams = feature_class.ngrams
 
-    def get_all_words(self):
+    def get_all_words(self) -> Dict[str, int]:
+        """Get the vocabulary based on the dataset read
+
+        Returns:
+            Dict[str, int]: vocabulary with word 2 index structure
+        """
+
         all_words_counts = defaultdict(int)
 
         for words_counts in tqdm(self.sents_words_counts, leave=False):
@@ -83,16 +119,35 @@ class BOWFeatures(Features):
             in enumerate(all_words)
         }
 
-    def get_features(self, text, all_words):
-        features = np.zeros(shape=[len(all_words)])
+    def contains_number(self, text: str):
+        return any(char.isdigit() for char in text)
+
+    def get_avg_word_length(self, sent_words: List[str]):
+        if len(sent_words) == 0:
+            return 0
+        return np.mean([len(word) for word in sent_words])
+
+    def get_sent_length(self, sent_words: List[str]):
+        return len(sent_words)
+
+    def get_features(self, text: List[str], all_words: Dict[str, int]):
+        features = np.zeros(shape=[len(all_words) + 3])
         for i in range(self.ngrams[0], self.ngrams[1] + 1):
             for j in range(len(text) - i + 1):
                 ngram = tuple(text[j: j + i])
                 if ngram in all_words:
                     features[all_words[ngram]] = 1
+        features[-1] = self.get_avg_word_length(text)
+        features[-2] = self.get_sent_length(text)
+        features[-3] = int(self.contains_number(' '.join(text)))
         return features
 
-    def process_features(self):
+    def process_features(self) -> np.array:
+        """Get the features of the dataset in a numpy array with shape (#records, #features)
+
+        Returns:
+            np.array: feature vectors
+        """
         if self.all_words is None:
             self.all_words = self.get_all_words()
         features = np.array([
@@ -123,7 +178,18 @@ class BOWFeatures(Features):
 
 
 class BOWWeightedFeatures(BOWFeatures):
+    """ Bag of Words Feature class augmented with happiness scores for each word in the vocabulary
+    """
+
     def __init__(self, data_file, no_labels=False, ngrams=(1, 2), feature_class=None, decrypt=False):
+        """
+        Args:
+            data_file (_type_): dataset input file
+            no_labels (bool, optional): whether the dataset contains labels or not. Defaults to False.
+            ngrams (tuple, optional): Defaults to (1, 2).
+            feature_class (_type_, optional): the instance of feature class to use in order to fill in the properties of this instance. Defaults to None.
+            decrypt (bool, optional): Whether to decrypt the dataset or not. Defaults to False.
+        """
         super().__init__(data_file=data_file, no_labels=no_labels,
                          ngrams=ngrams, feature_class=feature_class, decrypt=decrypt)
         self.word_happiness_scores = self.get_word_happiness_scores()
@@ -138,10 +204,18 @@ class BOWWeightedFeatures(BOWFeatures):
 
 
 class Word2VecFeatures(Features):
+    """Word2vec Features
+    """
 
     model = None
 
     def __init__(self, data_file, no_labels=False, decrypt=False):
+        """
+        Args:
+            data_file (_type_): dataset input file
+            no_labels (bool, optional): whether the dataset contains labels or not. Defaults to False.
+            decrypt (bool, optional): Whether to decrypt the dataset or not. Defaults to False.
+        """
         super().__init__(data_file=data_file, no_labels=no_labels, decrypt=decrypt)
         if self.model is None:
             self.model = gensim.models.KeyedVectors.load_word2vec_format(
@@ -164,7 +238,18 @@ class Word2VecFeatures(Features):
 
 
 class TF_IDF_Features(Features):
+    """TF-IDF features 
+    """
+
     def __init__(self, data_file, no_labels=False, feature_class=None, decrypt=False):
+        """
+
+        Args:
+            data_file (_type_): dataset input file
+            no_labels (bool, optional): whether the dataset contains labels or not. Defaults to False.
+            feature_class (_type_, optional): the instance of feature class to use in order to fill in the properties of this instance. Defaults to None.
+            decrypt (bool, optional): Whether to decrypt the dataset or not. Defaults to False.
+        """
         super().__init__(data_file, no_labels, decrypt=decrypt)
         if feature_class is None:
             corpus = [' '.join(words) for words in self.tokenized_text]

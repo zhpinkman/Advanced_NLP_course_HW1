@@ -1,9 +1,8 @@
 import numpy as np
 import wandb
 from typing import Any, Dict
-from collections import defaultdict
 from IPython import embed
-from Features import BOWFeatures, TF_IDF_Features
+from Features import BOWFeatures, TF_IDF_Features, Word2VecFeatures
 from Model import *
 from tqdm import tqdm
 from sklearn.preprocessing import OneHotEncoder
@@ -16,17 +15,36 @@ def softmax(x, axis=1):
 class LogisticRegression(Model):
 
     def loss(self, X, Y, W):
+        """Compute the loss for a given batch
+
+        Args:
+            X : Feature vectors
+            Y : True labels
+            W : Weight vectors
+
+        Returns:
+         loss value computed
+        """
         Z = - X @ W
-        N = X.shape[0]
-        loss = 1/N * (np.trace(X @ W @ Y.T) +
-                      np.sum(np.log(np.sum(np.exp(Z), axis=1))))
+        loss = (1/X.shape[0]) * (np.trace(X @ W @ Y.T) +
+                                 np.sum(np.log(np.sum(np.exp(Z), axis=1))))
         return loss
 
-    def gradient(self, X, Y, W, mu):
+    def gradient(self, X, Y, W, lamda):
+        """_summary_
+
+        Args:
+            X : Feature vectors
+            Y : True labels
+            W : Weight vectors
+            lamda
+
+        Returns:
+            compute the gradient which follows the same procedure of calculus as "loss".
+        """
         Z = - X @ W
         P = softmax(Z, axis=1)
-        N = X.shape[0]
-        gd = 1/N * (X.T @ (Y - P)) + 2 * mu * W
+        gd = (1/X.shape[0]) * (X.T @ (Y - P)) + 2 * lamda * W
         return gd
 
     def train(self, input_file, **kwargs):
@@ -44,10 +62,20 @@ class LogisticRegression(Model):
         if kwargs['features'] == "bow":
             feature_class = BOWFeatures(
                 data_file=input_file,
-                ngrams=(1, kwargs['ngram'])
+                ngrams=(1, kwargs['ngram']),
+                decrypt=kwargs['decrypt'] is not None
             )
         elif kwargs['features'] == 'tfidf':
-            feature_class = TF_IDF_Features(data_file=input_file)
+            feature_class = TF_IDF_Features(
+                data_file=input_file,
+                decrypt=kwargs['decrypt'] is not None
+            )
+
+        elif kwargs['features'] == 'word2vec':
+            feature_class = Word2VecFeatures(
+                data_file=input_file,
+                decrypt=kwargs['decrypt'] is not None
+            )
 
         train_labels = feature_class.labels
         with open(kwargs['devlabels'], 'r') as f:
@@ -59,14 +87,23 @@ class LogisticRegression(Model):
             test_feature_class = BOWFeatures(
                 data_file=kwargs['dev'],
                 no_labels=True,
-                feature_class=feature_class
+                feature_class=feature_class,
+                decrypt=kwargs['decrypt'] is not None
             )
         elif kwargs['features'] == "tfidf":
             test_feature_class = TF_IDF_Features(
                 data_file=kwargs['dev'],
                 no_labels=True,
-                feature_class=feature_class
+                feature_class=feature_class,
+                decrypt=kwargs['decrypt'] is not None
             )
+        elif kwargs['features'] == "word2vec":
+            test_feature_class = Word2VecFeatures(
+                data_file=kwargs['dev'],
+                no_labels=True,
+                decrypt=kwargs['decrypt'] is not None
+            )
+
         test_features = test_feature_class.process_features()
 
         classes = feature_class.labelset
@@ -89,12 +126,12 @@ class LogisticRegression(Model):
         # weight vector with size (#vocab, #classes)
         step = 0
 
-        eta = 0.4
-        mu = 0.01
+        lr = 0.4
+        lamda = 0.01
 
         while step < kwargs['epochs']:
             step += 1
-            W -= eta * self.gradient(features, Y_onehot, W, mu)
+            W -= lr * self.gradient(features, Y_onehot, W, lamda)
             epoch_train_loss = self.loss(features, Y_onehot, W)
             epoch_test_loss = self.loss(test_features, test_Y_onehot, W)
 
@@ -103,7 +140,7 @@ class LogisticRegression(Model):
                 'test_loss': epoch_test_loss
             }, step=step)
 
-        if kwargs['features'] == "bow":
+        if kwargs['features'] in ["bow", "wbow"]:
             feature_class.sents_words_counts = None
             feature_class.tokenized_text = None
 
@@ -133,13 +170,21 @@ class LogisticRegression(Model):
             test_feature_class = BOWFeatures(
                 data_file=input_file,
                 no_labels=True,
-                feature_class=feature_class
+                feature_class=feature_class,
+                decrypt=feature_class.decrypt
             )
         elif type(feature_class).__name__ == "TF_IDF_Features":
             test_feature_class = TF_IDF_Features(
                 data_file=input_file,
                 no_labels=True,
-                feature_class=feature_class
+                feature_class=feature_class,
+                decrypt=feature_class.decrypt
+            )
+        elif type(feature_class).__name__ == "Word2VecFeatures":
+            test_feature_class = Word2VecFeatures(
+                data_file=input_file,
+                no_labels=True,
+                decrypt=feature_class.decrypt
             )
 
         features = test_feature_class.process_features()

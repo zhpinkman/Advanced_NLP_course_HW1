@@ -12,16 +12,16 @@ from tqdm import tqdm
 import numpy as np
 from IPython import embed
 from Model import *
-from Features import BOWFeatures, BOWWeightedFeatures
+from Features import BOWFeatures, BOWWeightedFeatures, Features
 from collections import defaultdict
 
 
 class NaiveBayes(Model):
 
-    def get_class_probs(self, feature_class):
+    def get_class_probs(self, feature_class: Features) -> Dict[Any, float]:
         labels = feature_class.labels
         class_probs = {
-            label: len(np.where(np.array(labels) == label)[0])
+            label: len(np.where(np.array(labels) == label)[0]) / len(labels)
             for label in feature_class.labelset
         }
         return class_probs
